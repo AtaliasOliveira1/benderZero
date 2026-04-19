@@ -1,10 +1,10 @@
-//Base 100% Editable creditos a Naufrabot 
+//Base 100% Editável créditos para Bender
 
-//Página oficial naufrabot.com
+//Página oficial benderbot.com
 
-//Sígueme en todas mis redes para estar informados con las novedades de la base 
+//Siga-me em todas as minhas redes sociais para ficar informado sobre atualizações da base 
 
-//Modulos
+//Módulos
 const { default: makeWASocket,
   DisconnectReason, JulsBotIncConnect, getAggregateVotesInPollMessage, delay, makeCacheableSignalKeyStore, useMultiFileAuthState,
  fetchLatestBaileysVersion, 
@@ -27,21 +27,21 @@ const util = require("util")
 const speed = require("performance-now");
 const mimetype = require('mime-types')
 const { exec, spawn, execSync } = require("child_process")
-let phoneNumber = "5199999999"; // cambiar número
+let phoneNumber = "559985011115"; // mude o número
 const axios = require("axios")
  const ffmpeg = require('fluent-ffmpeg')
  
- //color
+ //cor
 const chalk = require('chalk')
 const color = (text, color) => { return !color ? chalk.green(text) : chalk.keyword(color)(text) };
  
- //baner
-const banner = cfonts.render("Naufra| Bot| Base", {
+ //banner
+const banner = cfonts.render("Bender| Bot", {
   font: 'pallet',
   align: 'center',
   gradient: ["green","blue"]
 })
-      // FUNCIONES DESCARGA 
+      // FUNÇÕES DE DOWNLOAD 
 const { fetchJson , getBuffer ,fetchBuffer } = require('./fuction/download/gets.js')
 
 
@@ -54,7 +54,7 @@ const { sendVideoAsSticker2, sendImageAsSticker2 } = require('./fuction/sticker/
  //Grupos js
 const { MoneyOfSender, addkoin, delkoin, AddReg, checkOfReg , addLevel, addXp,levelOfsender , xpOfsender ,checkOfRegM ,addkoinM , delkoinM , MoneyOfM,Rxp, addRxp ,addRep , delRep , repUser  } = require('./settings/Grupo/Js/reg.js')
      
-           // GAMES
+           // JOGOS
 const  { addClaim , checkClaim , timeClaim ,expiredClaim } = require('./Games/Js/claim.js')
 const { checkCasino,checkAttp,checkEmoji,checkEve, addClaimTraga, checkClaimTraga, timeClaimTraga, checkRuleta,checkMinar,addCasino,addAttp,addEmoji,addEve,addRuleta ,addMinar,expiredCasino,expiredMinar,expiredAttp,expiredEmoji,expiredEve,expiredRuleta,timeAttp,timeEmoji,timeEve,timeRuleta,timeMinar,timeCasino,expiredDayli,JsonDayli,addDayli,timeDayli,checkDayli,checkPescar,timePescar,addPescar,expiredPescar}
  = require('./Games/Js/mining.js')
@@ -63,7 +63,7 @@ const { checkCasino,checkAttp,checkEmoji,checkEve, addClaimTraga, checkClaimTrag
     // Menu bot js
 const Menu = require ('./settings/Bot/Js/menu.js')
 
- //configurar ggrupos
+ //configurar grupos
 const welkom = JSON.parse(fs.readFileSync('./settings/Grupo/Json/welkom.json')) 
 const antilink = JSON.parse(fs.readFileSync('./settings/Grupo/Json/antilink.json'))
 const bngp = JSON.parse(fs.readFileSync('./settings/Grupo/Json/grupo.json'))
@@ -73,27 +73,85 @@ const Exportion = JSON.parse(fs.readFileSync('./Games/Json/exportion.json'))
 const Exportion1 = JSON.parse(fs.readFileSync('./Games/Json/exportion1.json'))
 const Cuestions = JSON.parse(fs.readFileSync('./Games/Json/cuestions.json'))
               
-   // 𝚃𝙸𝙼𝙴
+   // TEMPO
 const moment = require("moment-timezone") 
 const time = moment.tz('America/Lima').format('DD/MM HH:mm:ss')
 const horap = moment().format('HH')
-var timeFt ='𝘽𝙪𝙚𝙣𝙖𝙨 🙋'
+var timeFt ='Bom dia! 🙋'
 if (horap >= '01' && horap <= '05') {
-  timeFt = '𝘽𝙪𝙚𝙣𝙤𝙨 𝙙𝙞𝙖𝙨 ✨'
+  timeFt = 'Bom dia! ✨'
 } else if (horap >= '05' && horap <= '12') {
-  timeFt = '𝘽𝙪𝙚𝙣𝙤𝙨 𝙙𝙞𝙖𝙨 ☀️'
+  timeFt = 'Bom dia!! ☀️'
 } else if (horap >= '12' && horap <= '18') {
-  timeFt = '𝘽𝙪𝙚𝙣𝙖𝙨 𝙩𝙖𝙧𝙙𝙚𝙨 ⛅'
+  timeFt = 'Boa tarde! ⛅'
 } else if (horap >= '18' && horap <= '23') {
-  timeFt = '𝙗𝙪𝙚𝙣𝙖𝙨 𝙣𝙤𝙘𝙝𝙚𝙨 🌑'
+  timeFt = 'Boa noite! 🌑'
 } 
 
 
+// WEBHOOK HEARTBEAT
+const URL_WEBHOOK = 'https://info.ataliasloami.shop/api/bot/webhook';
+//const URL_WEBHOOK = 'http://localhost:3000/api/bot/webhook';
 
- //Configuraciones 
-var { creador, owner, Bot, JpgBot, NAUFRA_KEY } = require("./settings/settings.json");        
-const prefixo = ['#','/','•','.','!','?','*']// @ Prefijos
-const APINAUFRA = 'https://api.naufrabot.com'
+const SECRET = "bot-webhook-secret-2024";
+
+async function ping() {
+  try {
+    const res = await fetch(URL_WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 
+        is_online: true, 
+        secret: SECRET 
+      }),
+    });
+    if (res.ok) console.log(chalk.greenBright("💓 Heartbeat enviado com sucesso!"));
+  } catch (err) {
+    console.error(chalk.red("❌ Fez algo errado ou site fora do ar."));
+  }
+}
+
+// Envia a cada 60 segundos
+setInterval(ping, 60000);
+ping(); // Envia o primeiro logo ao abrir 
+
+// 1. Configurações do n8n
+// Use a "Production URL" que você pega dentro do nó Webhook no n8n
+const URL_WEBHOOK_N8N = 'https://n8n.ataliasloami.shop/webhook/da970d9d-29eb-4942-94a2-42e334f8329c'; 
+const SECRET_N8N = "bot-webhook-secret-2024";
+
+// 2. Função que avisa ao n8n que o bot está vivo
+async function enviarHeartbeat() {
+  try {
+    const response = await fetch(URL_WEBHOOK_N8N, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 
+        is_online: true, 
+        secret: SECRET_N8N 
+      }),
+    });
+
+    if (response.ok) {
+      console.log(chalk.greenBright("💓 Heartbeat: Sinal enviado ao n8n!"));
+    } else {
+      console.log(chalk.yellow("⚠️ n8n recebeu, mas deu erro:"), response.status);
+    }
+  } catch (err) {
+    console.error(chalk.red("❌ Erro ao conectar no n8n (Server offline?):"), err.message);
+  }
+}
+
+// 3. Inicia o monitoramento
+// Envia o primeiro sinal assim que liga
+enviarHeartbeat(); 
+
+// Repete o sinal a cada 60 segundos (1 minuto)
+setInterval(enviarHeartbeat, 60000);
+
+ //Configurações 
+var { creador, owner, Bot, JpgBot } = require("./settings/settings.json");        
+const prefixo = ['!']// @ Prefixos
 
 
 
@@ -115,18 +173,21 @@ return admins
 async function startProo() {
   console.clear();
   console.log(banner.string);
-  console.log(chalk.cyanBright("🔥 NaufraBot Base"));
+  console.log(chalk.cyanBright("🔥 Bender Bot"));
+  console.log(chalk.magentaBright("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
+  console.log(chalk.whiteBright("  🤖 Iniciando Bender Bot..."));
+  console.log(chalk.magentaBright("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
 
-  // Estado de sesión
+  // Estado da sessão
   const { state, saveCreds } = await useMultiFileAuthState("./session");
   const { version, isLatest } = await fetchLatestBaileysVersion();
   const msgRetryCounterCache = new NodeCache();
 
-  // Crear socket
+  // Criar socket
   const sock = makeWASocket({
     version,
     logger: pino({ level: "silent" }),
-    printQRInTerminal: false, // Desactivado para no mostrar QR
+    printQRInTerminal: false, // Desabilitado para não mostrar QR
     browser: ["Ubuntu", "Chrome", "20.0.04"],
     auth: {
       creds: state.creds,
@@ -138,55 +199,58 @@ async function startProo() {
     syncFullHistory: false,
   });
 
-  // 🟢 Si no hay sesión registrada, generar el código de vinculación de 8 dígitos
+  // 🟢 Se não houver sessão registrada, gerar código de pareamento de 8 dígitos
   if (!sock.authState.creds.registered) {
     let number = await question(
-      chalk.cyan("📱 Escribe tu número de WhatsApp con código de país (solo números): ")
+      chalk.cyan("📱 Enter your WhatsApp number with country code (numbers only): ")
     );
     rl.close();
     number = number.replace(/[^0-9]/g, "");
 
     if (!number) {
-      console.log(chalk.red("❌ Número inválido."));
+      console.log(chalk.redBright("❌ Número inválido."));
       process.exit(1);
     }
 
-    console.log(chalk.yellow("⌛ Solicitando código de vinculación..."));
+    console.log(chalk.yellowBright("⌛ Solicitando código de pareamento..."));
     try {
       const code = await sock.requestPairingCode(number);
-      console.log(chalk.bgGreen.black("✅ CÓDIGO DE VINCULACIÓN:"), chalk.white(code));
+      console.log(chalk.bgGreen.black("✅ CÓDIGO DE PAREAMENTO:"), chalk.white(code));
     } catch (err) {
-      console.error(chalk.red("❌ Error al generar código de vinculación:"), err.message);
+      console.error(chalk.redBright("❌ Erro ao gerar código de pareamento:"), err.message);
       process.exit(1);
     }
   }
 
-  // 🔄 Monitorear el estado de conexión
+  // 🔄 Monitorar estado da conexão
   sock.ev.on("connection.update", async (update) => {
     const { connection, lastDisconnect } = update;
 
     if (connection === "close") {
       const reason = new Boom(lastDisconnect?.error)?.output?.statusCode;
       if (reason === DisconnectReason.loggedOut) {
-        console.log(chalk.red("❌ Sesión cerrada. Borra la carpeta 'session' y vuelve a emparejar."));
+        console.log(chalk.redBright("❌ Sessão encerrada. Delete a pasta 'session' e pare novamente."));
       } else {
-        console.log(chalk.yellow("⚠️ Conexión cerrada, reconectando..."));
+        console.log(chalk.yellowBright("⚠️ Conexão fechada, reconectando..."));
         startProo();
       }
     } else if (connection === "open") {
-      console.log(chalk.greenBright("✅ Conectado exitosamente"));
+      console.log(chalk.greenBright("✅ Conectado com sucesso!"));
+      console.log(chalk.cyanBright("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
+      console.log(chalk.whiteBright("  ✨ Bender Bot está online!"));
+      console.log(chalk.cyanBright("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
       exec("rm -rf tmp && mkdir tmp");
     }
   });
 
-  // Guardar credenciales cuando se actualicen
+  // Salvar credenciais quando atualizadas
   sock.ev.on("creds.update", saveCreds);
 
 
 
     
-               // 𝙲𝙾𝙽𝙴𝚇𝙸𝙾𝙽 
-        // 𝙱𝙸𝙴𝙽𝚅𝙴𝙽𝙸𝙳𝙰 𝚈 𝙳𝙴𝚂𝙿𝙴𝙳𝙸𝙳𝙰 
+               // CONEXÃO
+        // BOAS-VINDAS E DESPEDIDAS
 sock.ev.on("group-participants.update", async (anu) => {
 if(!welkom.includes(anu.id)) return
 try {
@@ -201,21 +265,21 @@ const mem = metadata.participants.length
 const descr = metadata.desc
 const sol = `
 ✦━─⌬༓༒༓⌬─━✦
-*✧༺ 𝑩𝒊𝒆𝒏𝒗𝒆𝒏𝒊𝒅𝒐/𝒂 ✦༻✧*
+*✧༺ 𝑩�-𝒗�𝒏𝒐/𝒂 ✦༻✧*
 
-💌 「 Hola @${num.split('@')[0]} 🌟 y bienvenido/a al reino de *${grup}* 」
-🥂 Que tu estancia esté llena de risas, buena charla 🗨 y alguna que otra copa de hidromiel 🍯🍺
+💌 「 Olá @${num.split('@')[0]} 🌟 e bem-vindo/a ao reino de *${grup}* 」
+🥂 Que sua estadia seja cheia de risadas, boa conversa 🗨 e alguma cerveja 🍯🍺
 
-📜 Recuerda echarle un ojo a nuestras reglas para no invocar a los dragones 🐉🔥
+📜 Lembre-se de verificar nossas regras para não invocar os dragões 🐉🔥
  
-『 👥 Miembros actuales: ${mem} 』
+『 👥 Membros atuais: ${mem} 』
 ✦━─⌬༓༒༓⌬─━✦
 `
 
 await sock.sendMessage(anu.id, {
   image: { url: "https://i.ibb.co/HDf3hw9J/20250702-214923.jpg" },
   caption: sol,
-  mentions: [num]  // 👈 Aquí haces la mención real
+  mentions: [num]  // 👈 Aqui você faz a menção real
 })
 }
 if (anu.action == 'promote') {
@@ -223,11 +287,11 @@ if (anu.action == 'promote') {
     teks = `
 ✦━─┈༓༒༓┈─━✦
 
-     *✧༺ 𝓝𝓾𝓮𝓿𝓸 𝓐𝓭𝓶𝓲𝓷 ༻✧*
+     *✧༺ 𝓝�𝓸 𝓐𝓭𝓶𝓲𝓷 ༻✧*
 
-🪪 𝗡𝗼𝗺𝗯𝗿𝗲: @${num.split('@')[0]}
+🪪 𝗡𝗼𝗺: @${num.split('@')[0]}
 🌐 𝗚𝗿𝘂𝗽𝗼: ${metadata.subject}
-💌 「 ¡Enhorabuena! 🎉 Has ascendido a la mesa de los administradores 🪄 」
+💌 「 Parabéns! 🎉 Você foi promovido à mesa dos administradores 🪄 」
 
 ✦━─┈༓༒༓┈─━✦
 `
@@ -236,11 +300,11 @@ if (anu.action == 'promote') {
 
 } 
 }catch(e) {
-console.log('Error: %s', color(e, "red"))
+console.log(chalk.redBright('Error: %s'), color(e, "red"))
 }
 })
 
-//Bienvenida y despedidas
+//Boas-vindas e despedidas
 
 sock.ev.on('creds.update', saveCreds)
 sock.ev.on("messages.upsert",  () => { })
@@ -268,13 +332,13 @@ const numerodono = [
 const verificarN = async(sla) => {
 const [result] = await sock.onWhatsApp(sla)
 if(result == undefined) {
-enviar("Este usuário no existe en WhatsApp")
+enviar("Este usuário não existe no WhatsApp")
 } else {
-enviar(`${sla} Número existente en WhatsApp con  id: ${result.jid}`)
+enviar(`${sla} Número existente no WhatsApp com id: ${result.jid}`)
 }
 }
     
-// Constantes is
+// Constantes são
  const isGroup = info.key.remoteJid.endsWith('@g.us')
 const sender = isGroup ? info.key.participant: from
 const groupMetadata = isGroup ? await sock.groupMetadata(from) : ''
@@ -290,14 +354,14 @@ const q = args.join(' ')
 const text = args.join(' ')
 const isCmd = body.startsWith(prefixo)
               
-  // MULTIPREFIJO 
+  // MULTIPREFIXO 
 const removeAccents = (str) => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 const prefixes = prefixo ? prefixo.map(prefix => prefix.toLowerCase()) : [];
 const lowerBudy = budy.toLowerCase();
 const hasPrefix = prefixes.some(prefix => lowerBudy.startsWith(prefix));
 const commandArgs = hasPrefix ? lowerBudy.slice(prefixes.find(prefix => lowerBudy.startsWith(prefix)).length).trim().split(' ') : lowerBudy.trim().split(' ');
 const comando = removeAccents(commandArgs[0]);
-  // MULTIPREFIJO
+  // MULTIPREFIXO
 const mentions = (teks, memberr, id) => {
 (id == null || id == undefined || id == false) ? sock.sendMessage(from, {text: teks.trim(), mentions: memberr}) : sock.sendMessage(from, {text: teks.trim(), mentions: memberr})}
 const quoted = info.quoted ? info.quoted : info
@@ -316,17 +380,17 @@ const isBotGroupAdmins = esAdminFlexible(sock, groupAdmins.map(p => p.id));
 function esAdminFlexible(sock, listaDeAdmins = []) {
   if (!sock?.authState?.creds?.me) return false;
 
-  const botId = sock.authState.creds.me.id;   // ej: 51916525000:26@lid
-  const botLid = sock.authState.creds.me.lid; // ej: 51916525000@lid
+  const botId = sock.authState.creds.me.id;   // ex: 51916525000:26@lid
+  const botLid = sock.authState.creds.me.lid; // ex: 51916525000@lid
 
-  const clean = (jid) => jid?.split(':')[0]; // elimina el ":26" si existe
+  const clean = (jid) => jid?.split(':')[0]; // elimina o ":26" se existir
 
   return listaDeAdmins.some(adminJid => {
     const adminBase = clean(adminJid);
     return (
       adminJid === botId ||
       adminJid === botLid ||
-      adminJid === botId.replace(/:\d+/, '') || // compara sin ":xx"
+      adminJid === botId.replace(/:\d+/, '') || // compara sem ":xx"
       adminJid === botLid.replace(/:\d+/, '') ||
       adminBase === clean(botId) ||
       adminBase === clean(botLid)
@@ -340,15 +404,15 @@ const options = { timeZone: 'America/Lima', hour12: false }
 const data = new Date().toLocaleDateString('PE', { ...options, day: '2-digit', month: '2-digit', year: '2-digit' })
 const hora = new Date().toLocaleTimeString('PE', options) 
 
-           // Constantes if nuevas
+           // Novas constantes if
   const iswelkom = isGroup ? welkom.includes(from) : false
 const isBanGp = isGroup ? bngp.includes(from) : false
 const isAntipv = Antipv.includes('activo')
-const isReg = checkOfReg(sender)
+const isReg = true // Sistema de registro desabilitado - sempre retorna true
  const isAntiLink = isGroup ? antilink.includes(from) : false 
 const coins = MoneyOfSender(sender)
  
- // 🟢 Sistema de encendido/apagado global del bot
+ // 🟢 Sistema global de ligar/desligar bot
 
 const estadoPath = './settings/estadoBot.json'
 
@@ -372,7 +436,7 @@ const isModoAdmin = isGroup ? modoAdminList.includes(from) : false;
 
 
 
- //Funciones nuevas
+ //Novas funções
 function pickRandom(list) {
   return list[Math.floor(Math.random() * list.length)];
 } 
@@ -388,7 +452,7 @@ function DLT_FL(file) {
  sock.sendMessage(from,{ text : texto }, {quoted : info})
  }
  
- //rangos
+ //ranks
 const rangos = JSON.parse(fs.readFileSync('./settings/rangos.json'))
 const YouN = levelOfsender(sender)
 const Mlevel = rangos[YouN] || '🎖️𝐒𝐢𝐧 𝐑𝐚𝐧𝐠𝐨🎖️'
@@ -424,7 +488,7 @@ const Mlevel = rangos[YouN] || '🎖️𝐒𝐢𝐧 𝐑𝐚𝐧𝐠𝐨🎖️'
  var Mrxp = '*██████████ 100%*'
  }
  
-             // 𝙽iveles
+             // Níveis
  // Constantes if
  const isImage = type == "imageMessage"
 const isVideo = type == "videoMessage"
@@ -462,7 +526,7 @@ return buffer}
 
 
 
-//funcion para mencionar 
+//função para mencionar 
 
 const obtenerMencionado = (info) => {
     const context = info.message?.extendedTextMessage?.contextInfo
@@ -486,7 +550,7 @@ const runtime = function(seconds) {
     const days = Math.floor(seconds / (3600 * 24));
     const hours = Math.floor((seconds % (3600 * 24)) / 3600);
     const minutes = Math.floor((seconds % 3600) / 60);
-    const remainingSeconds = Math.floor(seconds % 60); // Utilizando Math.floor() para asegurar que los segundos sean enteros
+    const remainingSeconds = Math.floor(seconds % 60); // Usando Math.floor() para garantir que os segundos sejam inteiros
     const parts = [];    
     if (days > 0) {
         parts.push(days + (days === 1 ? " 𝙳𝙸𝙰" : " 𝙳𝙸𝙰𝚂"));
@@ -503,24 +567,24 @@ const runtime = function(seconds) {
     return parts.join(', ');
 }
 
-  // Respuesta
+  // Resposta
      const respuesta = {
-  admin: "『 🚫 𝒏𝒐 𝒆𝒓𝒆𝒔 𝒖𝒏 𝒂𝒅𝒎𝒊𝒏 』",
-  botadmin: "『 ⚠️ 𝒆𝒍 𝒃𝒐𝒕 𝒅𝒆𝒃𝒆 𝒕𝒆𝒏𝒆𝒓 𝒑𝒆𝒓𝒎𝒊𝒔𝒐 𝒅𝒆 𝒂𝒅𝒎𝒊𝒏 』",
-  grupos: "『 💬 𝒄𝒐𝒎𝒂𝒏𝒅𝒐 𝒅𝒊𝒔𝒑𝒐𝒏𝒊𝒃𝒍𝒆 𝒔𝒐𝒍𝒐 𝒆𝒏 𝒈𝒓𝒖𝒑𝒐𝒔 』",
-  vacio: "『 ❓ 𝒆𝒔𝒄𝒓𝒊𝒃𝒆 𝒂𝒍𝒈𝒐, 𝒏𝒐 𝒑𝒖𝒆𝒅𝒐 𝒂𝒅𝒊𝒗𝒊𝒏𝒂𝒓 』",
-  miowner: "『 ⛔ 𝒏𝒐 𝒆𝒓𝒆𝒔 𝒎𝒊 𝒄𝒓𝒆𝒂𝒅𝒐𝒓 』",
+  admin: "『 🚫 �𝒐çê �ã� é 𝒖� 𝒂𝒅𝒎𝒊𝒏 』",
+  botadmin: "『 ⚠️ � 𝒃𝒐𝒕 ������� �𝒆 𝒑𝒆𝒓𝒎𝒊𝒔�ã� 𝒅𝒆 𝒂𝒅𝒎𝒊𝒏 』",
+  grupos: "『 💬 𝒄𝒐𝒎𝒂𝒏𝒅𝒐 𝒅𝒊𝒔𝒑𝒐𝒏í��𝒍 ����𝒂𝒔 𝒆� 𝒈𝒓𝒖𝒑𝒐𝒔 』",
+  vacio: "『 ❓ 𝒆𝒔𝒄𝒓��� 𝒂𝒍𝒈𝒐, ã ã ��������� 』",
+  miowner: "『 ⛔ �𝒐çê ã� é �𝒆� 𝒓�𝒂𝒅𝒐𝒓 』",
 
   registro: `
 ╔════◇◆◇════╗
-💬 ❝ 𝑷𝒓𝒊𝒎𝒆𝒓𝒐 𝒅𝒆𝒃𝒆𝒔 𝒓𝒆𝒈𝒊𝒔𝒕𝒓𝒂𝒓𝒕𝒆 🤔 ¡𝑬𝒔 𝒇𝒂𝒄𝒊𝒍! 😄 ❞
-💬 ❝ 𝑬𝒔𝒄𝒓𝒊𝒃𝒆:  .𝒓𝒆𝒈 ❞
+💬 ❝ 𝑷𝒓𝒊𝒎𝒆��𝒐 ��çê ����𝒊�𝒂 �𝒆 �𝒆𝒈𝒊𝒔𝒕𝒓𝒂𝒓 🤔 ¡É 𝒇á𝒊𝒍! 😄 ❞
+💬 ❝ 𝑬𝒔𝒄𝒓���:  .𝒓𝒆𝒈 ❞
 ╚════◇◆◇════╝
 `,
 
   yaregistro: `
 ╔══════◇◆◇══════╗
-💬 ❝ 𝑳𝒐 𝒍𝒂𝒎𝒆𝒏𝒕𝒐, 𝒚𝒂 𝒆𝒔𝒕𝒂́𝒔 𝒓𝒆𝒈𝒊𝒔𝒕𝒓𝒂𝒅𝒐 🗒 ❞
+💬 ❝ ��������, ��çê já 𝒆𝒔𝒕á 𝒓𝒆𝒈𝒊𝒔𝒕𝒓𝒂𝒅𝒐 🗒 ❞
 ╚══════◇◆◇══════╝
 `,
 
@@ -528,12 +592,12 @@ const runtime = function(seconds) {
 }
 
  
-   // Verificados
+   // Verificado
  const SvnC = {key : {participant : '0@s.whatsapp.net'},message : {contactMessage : {displayName : `${pushname}`}}};
  
-  // Funciones para crear códigos de 6 Digitos
+  // Funções para criar códigos de 6 dígitos
   
-  function generarCodigo() {
+  function generateCode() {
     const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     let codigo = '';
     for (let i = 0; i < 6; i++) {
@@ -544,9 +608,9 @@ const runtime = function(seconds) {
 }
 
 
- // MENSAJES EN CONSOLA
+ // MENSAGENS DO CONSOLE
  
-// comando pv
+// comando privado
 if (!isGroup && isCmd) console.log( '\n  ╔─━━━━ ', color(' 𝗖𝗠𝗗 「 𝗨𝗦𝗨𝗔𝗥𝗜𝗢 」','blue'), '━━━━─╗','\n',
 color(' GRUPO :','lime'),color(groupName,'cyan'),'\n',
 color(' NOMBRE :','lime'),color(pushname,'cyan'),'\n',
@@ -562,7 +626,7 @@ color(' MENSAJE :','lime'),color(budy,'cyan'),'\n',
 color(' HORA :','lime'),color(hora,'cyan'),'\n',
 color(' DATOS :','lime'),color(data,'cyan'),'\n',color(' ╚─━━━━━━━━ '),color ('【✔】 ','red'), '━━━━━━━━━─╝')
 
-//comando grupo
+//comando de grupo
 if (isCmd && isGroup) console.log( '\n  ╔─━━━ ', color('  𝗖𝗠𝗗「 𝗨𝗦𝗨𝗔𝗥𝗜𝗢 」','blue'), '━━━─╗','\n',
 color(' GRUPO :','lime'),color(groupName,'cyan'),'\n',
 color(' NOMBRE :','lime'),color(pushname,'cyan'),'\n',
@@ -570,7 +634,7 @@ color(' COMANDO :','lime'),color(comando,'cyan'),'\n',
 color(' HORA :','lime'),color(hora,'cyan'),'\n',
 color(' DATOS :','lime'),color(data,'cyan'),'\n',color(' ╚─━━━━━━ '),color ('𝗘𝗹𝗶𝘀𝘃𝗮𝗻 | 𝗥𝘆𝘂𝗸','red'), '━━━━━─╝')
 
-//mensaje grupo
+//mensagem de grupo
 if (!isCmd && isGroup) console.log( '\n  ╔─━━━━━', color(' 𝗖𝗛𝗔𝗧「 𝗕𝗢𝗧 」','blue'), '━━━━━─╗','\n',
 color(' GRUPO :','lime'),color(groupName,'cyan'),'\n',
 color(' NOMBRE :','lime'),color(pushname,'cyan'),'\n',
@@ -587,7 +651,7 @@ expiredEve()
 expiredDayli()
 expiredPescar()
 expiredRuleta()
-//ban grupo
+//banir grupo
 if(isBanGp) {
 return
 }
@@ -596,9 +660,14 @@ if(isAntipv && !isGroup && !isOwner){
 sock.updateBlockStatus(sender, 'block')
 }
 
-// INICIO DE COMANDOS
-//solo funciona si está activado el bot
-// Si el grupo está en modo admin y el usuario no es admin ni owner, se bloquea su acceso
+//menu atalias
+    const cabecalhomenu = `> 🤖 ʙᴏᴛ: *${Bot}*
+> 👤 ᴜsᴜᴀʀɪᴏ: *${pushname}* 
+> ✴️ ᴅᴏɴᴏ: *${creador}*`
+
+// INÍCIO DOS COMANDOS
+//só funciona se o bot estiver ativo
+// Se o grupo estiver em modo admin e o usuário não for admin ou dono, o acesso é bloqueado
 if (isModoAdmin && !isGroupAdmins && !isOwner) return;
 if (!botActivo && !isOwner) return
 
@@ -606,67 +675,161 @@ switch(comando) {
 
 
 case 'prueba':
-enviar(`Este es un comando de prueba 🌟🌟
+enviar(`Este é um comando de teste 🌟🌟
 
 ......`);
 break
 
 case 'comando2':
-enviar(`🧩Este es un comando nuevo`);
+enviar(`🧩Este é um novo comando`);
 break
-//Comandos owner
+//Comandos do dono
 
 
   
-case 'miapi':
-case 'apikey': {
-
-try{
-
-const apiURL = `${APINAUFRA}/api/keyinfo?apikey=${NAUFRA_KEY}`;
-
-const data = await fetchJson(apiURL);
-
-if(!data.status){
-return enviar("❌ Error consultando API");
-}
-
-enviar(`🔑 *INFORMACIÓN DE API*
-
-👤 Usuario: ${data.usuario}
-
-📊 Requests usadas: ${data.usadas}
-📦 Límite total: ${data.limite}
-
-⚡ Restantes: ${data.restantes}
-
-🌐 API: api.naufrabot.com`);
-
-}catch(e){
-
-console.log(e)
-
-enviar("❌ Error consultando API")
-
-}
-
-}
-break;
-  
-  
-  case 'menu':
-case 'help': {
-    if (!isGroup) return;
+case 'menu':
+case 'help':
+case 'comandos':
+case 'commands': {
     if (!isReg) return enviar(respuesta.registro);
 
-    const Mnu = Menu(timeFt, Bot, sender, groupName, groupMembers);
+    const prefix = prefixo[0];
+    let menuText = `${cabecalhomenu}
+┏ _ғɪɢᴜʀɪɴʜᴀs ᴀʀᴍᴀᴢᴇɴᴀᴅᴀs:_ *6.000*
+┗ 📂 4 ɢʙ ]
+╰══𝐅𝐈𝐆𝐔𝐑𝐈𝐍𝐇𝐀𝐒══⪨
+⋟📸 ${prefixo}s (ᴍᴀʀᴄᴀʀ ғᴏᴛᴏ)
+⋟✏️ ${prefixo}ʀᴇɴᴀᴍᴇ (ɴᴏᴍᴇ/ɴᴏᴍᴇ)
+⋟🖼️ ${prefixo}ғɪɢᴜʀɪɴʜᴀs
+╰┈┈┈◜❁◞┈┈┈
+⋟📂 ${prefixo}ᴍᴇɴᴜᴀᴅᴍ
+╰─┈┈┈◜❁◞┈┈┈─╯
 
-    // Enviar imagen del menú completa
-    await sock.sendMessage(from, {
-        image: { url: JpgBot },
-        caption: Mnu,
-        mentions: [sender]
-    }, { quoted: info });
+┏ _Grupo:_ ${groupName}
+┗ 📂 Usuários: *${groupMembers.length}* ]`;
+
+    await sock.sendMessage(from, { text: menuText, mentions: [sender] }, { quoted: info });
+}
+break;
+
+case 'menuadm':
+case 'menuadmin':
+case 'menuadmins':
+case 'admmenu': {
+    if (!isReg) return enviar(respuesta.registro);
+    if (!isGroup) return enviar('apenas disponível em grupos');
+
+    const prefix = prefixo[0];
+    let menuText = `┏ _ғɪɢᴜʀɪɴʜᴀs ᴀʀᴍᴀᴢᴇɴᴀᴅᴀs:_ *${groupMembers.length}*
+┗ 📂 ${groupName} ]
+╰══𝐀𝐃𝐌𝐈𝐍══⪨
+⋟👋 ${prefixo}welcome 1/0
+⋟🔗 ${prefixo}antilink 1/0
+⋟👑 ${prefixo}modoadmin 1/0
+⋟📢 ${prefixo}todos
+⋟📢 ${prefixo}anuncio
+⋟🚫 ${prefixo}ban/kick
+⋟🔔 ${prefixo}notify
+⋟🔒 ${prefixo}grupo
+⋟🏆 ${prefixo}rankrep
+⋟💰 ${prefixo}rankcoins
+⋟⭐ ${prefixo}ranknivel
+╰══𝐆𝐄𝐑𝐀𝐋══⪨
+⋟🚫 ${prefixo}bangp
+⋟✅ ${prefixo}unbangp
+⭕ ${prefixo}botoff
+✅ ${prefixo}boton
+⋟🚫 ${prefixo}antiprivado
+⋟👁️ ${prefixo}revelarvisu
+🔄 ${prefixo}reiniciar
+╰─┈┈┈◜❁◞┈┈┈─╯`;
+
+    await sock.sendMessage(from, { text: menuText, mentions: [sender] }, { quoted: info });
+}
+break;
+
+case 'menufigus':
+case 'menufigurinhas': {
+    if (!isReg) return enviar(respuesta.registro);
+
+    const prefix = prefixo[0];
+    let menuText = `┏ _ғɪɢᴜʀɪɴʜᴀs ᴀʀᴍᴀᴢᴇɴᴀᴅᴀs:_ *${groupMembers.length}*
+┗ 📂 ${groupName} ]
+╰══𝐅𝐈𝐆𝐔𝐒══⪨
+⋟🎨 ${prefix}sticker
+⋟✏️ ${prefix}attp
+⋟✏️ ${prefix}attp2
+⋟✏️ ${prefix}attp3
+⋟🔀 ${prefix}emojimix
+⋟🖼️ ${prefix}toimg
+╰─┈┈┈◜❁◞┈┈┈─╯`;
+
+    await sock.sendMessage(from, { text: menuText, mentions: [sender] }, { quoted: info });
+}
+break;
+
+case 'sendstickers':
+case 'figurinhas':
+case 'figurinha':
+case 'sendsticker': {
+    if (!isReg) return enviar(respuesta.registro);
+    
+    try {
+        if (!body) return enviar("❌ Erro ao processar comando.");
+        const args = body.trim().split(/\s+/);
+        let quantidade = parseInt(args[1]);
+        if (isNaN(quantidade)) quantidade = 1;
+        quantidade = Math.min(Math.max(1, quantidade), 10);
+
+        // Função delay
+        const delay = ms => new Promise(res => setTimeout(res, ms));
+
+        const totalFigurinhas = 5532;
+
+        for (let i = 0; i < quantidade; i++) {
+            const num = Math.floor(Math.random() * totalFigurinhas);
+            const repoIndex = Math.floor(num / 1000) + 1;
+            const url = `https://raw.githubusercontent.com/AtaliasOliveira1/stickers-${repoIndex}/main/fig%20(${num}).webp`;
+
+            try {
+                await sock.sendMessage(from, { sticker: { url: url } });
+                await delay(1000); // delay de 1s entre envios
+            } catch (err) {
+                console.error(`Erro ao enviar figurinha ${num}:`, err.message);
+                enviar(`❌ Não consegui enviar uma das figurinhas. Tenta de novo!`);
+                break;
+            }
+        }
+        
+        await addXp(sender, 5);
+
+    } catch (e) {
+        console.error(e);
+        enviar("❌ Erro ao enviar figurinhas");
+    }
+}
+break;
+
+case 'menudown':
+case 'menudownloads': {
+    if (!isReg) return enviar(respuesta.registro);
+
+    const prefix = prefixo[0];
+    let menuText = `┏ _ғɪɢᴜʀɪɴʜᴀs ᴀʀᴍᴀᴢᴇɴᴀᴅᴀs:_ *${groupMembers.length}*
+┗ 📂 ${groupName} ]
+╰══𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀𝐒══⪨
+⋟🎵 ${prefix}play
+⋟🎬 ${prefix}playvideo
+⋟📄 ${prefix}playdoc
+⋟🎭 ${prefix}tiktok
+⋟📘 ${prefix}facebook
+⋟📸 ${prefix}instagram
+⋟📁 ${prefix}mediafire
+⋟📱 ${prefix}descargarapk
+⋟📌 ${prefix}pinterest
+╰─┈┈┈◜❁◞┈┈┈─╯`;
+
+    await sock.sendMessage(from, { text: menuText, mentions: [sender] }, { quoted: info });
 }
 break;
 
@@ -674,18 +837,18 @@ case 'boton':
 case 'botonon':
 case 'encenderbot':
   if (!isOwner) return enviar(respuesta.miowner)
-  if (botActivo) return enviar('✅ El bot ya está encendido.')
+  if (botActivo) return enviar('✅ O bot já está ligado.')
   guardarEstadoBot(true)
-  enviar('🤖 El bot ha sido *ACTIVADO* y volverá a responder a los comandos.')
+  enviar('🤖 O bot foi *ATIVADO* e voltará a responder aos comandos.')
 break
 
 case 'botoff':
 case 'apagabot':
 case 'offbot':
   if (!isOwner) return enviar(respuesta.miowner)
-  if (!botActivo) return enviar('⚠️ El bot ya estaba apagado.')
+  if (!botActivo) return enviar('⚠️ O bot já estava desligado.')
   guardarEstadoBot(false)
-  enviar('😴 El bot ha sido *DESACTIVADO* y dejará de responder a los comandos.')
+  enviar('😴 O bot foi *DESATIVADO* e parará de responder aos comandos.')
 break
 
 
@@ -693,17 +856,17 @@ case 'antiprivado':
 case 'antipv':{
 if(!isOwner) return enviar(respuesta.miowner)
 if(args[0]=== 'on' ){
-if(isAntipv) return enviar('El anti-privado ya esta activo')
+if(isAntipv) return enviar('O anti-privado já está ativo')
 Antipv.push('activo')
 fs.writeFileSync('./settings/Json/chat.json' , JSON.stringify(Antipv))
-enviar('Anti-privado activado exitosamente')
+enviar('Anti-privado ativado com sucesso')
 } else if(args[0] === 'off'){
-if(!isAntipv) return enviar('El anti-privado ya estaba desactivado')
+if(!isAntipv) return enviar('O anti-privado já estava desativado')
 Antipv.splice('desactivo')
 fs.writeFileSync('./settings/Json/chat.json' , JSON.stringify(Antipv))
-enviar('Anti-privado desactivado exitosamente')
+enviar('Anti-privado desativado com sucesso')
 } else {
-enviar('on para activar y off para desactivar')
+enviar('on para ativar e off para desativar')
 }
 }
 break 
@@ -711,8 +874,8 @@ break
 
 
 case 'rvisu': case 'revelarvisu': case 'open':
-    if(!isOwner) return enviar(respuesta.miowner)
-    enviar('🥱')
+    //if(!isOwner) return enviar(respuesta.miowner)
+    //enviar('🥱')
     try{    
         if(JSON.stringify(info).includes("videoMessage")) {
             var vio = info.message?.extendedTextMessage?.contextInfo?.quotedMessage
@@ -720,7 +883,7 @@ case 'rvisu': case 'revelarvisu': case 'open':
             var viewVideo = vio?.videoMessage || info.message?.videoMessage || vio?.viewOnceMessageV2?.message?.videoMessage || info.message?.viewOnceMessageV2?.message?.videoMessage || info.message?.viewOnceMessage?.message?.videoMessage || vio?.viewOnceMessage?.message?.videoMessage
             viewVideo.viewOnce = false
             viewVideo.video = {url: viewVideo.url}
-            viewVideo.caption += "El vídeo fue *Revelado*"
+            //viewVideo.caption += "O vídeo foi *Revelado*"
             sock.sendMessage(from, viewVideo)
         } else {
             var vio = info.message?.extendedTextMessage?.contextInfo?.quotedMessage
@@ -732,29 +895,30 @@ case 'rvisu': case 'revelarvisu': case 'open':
             sock.sendMessage(from, viewImage)
         }
     } catch(e){
-        console.log(e)
+        console.log(chalk.redBright(e))
         enviar(e)
     }
     break
     
 case 'reiniciar': {
     console.log("=== DEBUG REINICIAR ===");
-    console.log("Número que ejecuta el comando:", sender);
-    console.log("Número(s) configurados como owner:", global.owner || owner || "No definido");
-    console.log("¿Es owner?:", isOwner);
+    console.log("Número que executa o comando:", sender);
+    console.log("Número(s) configurados como owner:", global.owner || owner || "Não definido");
+    console.log("É owner?:", isOwner);
 
     if (!isOwner) return enviar(respuesta.miowner);
 
-    enviar('𝚁𝙴𝙸𝙽𝙸𝙲𝙸𝙰𝙽𝙳𝙾, 𝙰𝙶𝚄𝙰𝚁𝙳𝙴 𝚄𝙽 𝙼𝙾𝙼𝙴𝙽𝚃𝙾 ');
+    enviar('𝚁𝙴𝙸𝙽𝙸�𝙸����, ������� �� ������𝙾 ');
     setTimeout(async () => {
-        console.log("Reiniciando el bot...");
+        console.log("Reiniciando o bot...");
         process.exit(0);
     }, 1000);
 }
 break;
 
+// ...
 
-//información 
+//informação 
 
 case 'infobot': case 'ping': {
 if (!isGroup) return
@@ -762,16 +926,16 @@ let timestamp = speed()
 let latensi = speed() - timestamp
 uptime = process.uptime()
 botinfo = `
-╔═【 𝑰𝒏𝒇𝒐 𝒅𝒆𝒍 𝑩𝒐𝒕 】═╗
+╔═【 𝑰𝒏𝒇𝒐 𝒅� 𝑩𝒐𝒕 】═╗
 ⏰  𝐇𝐎𝐑𝐀  »  ${time}
-📅  𝐅𝐄𝐂𝐇𝐀 »  ${data}
-🤖  𝐍𝐎𝐌𝐁𝐑𝐄 »  ${Bot}
-🔰  𝐏𝐑𝐄𝐅𝐈𝐉𝐎 »  𝓜𝓾𝓵𝓽𝓲𝓹𝓻𝓮𝓯𝓲𝓳𝓸
-⚡  𝐕𝐄𝐋𝐎𝐂𝐈𝐃𝐀𝐃 »  ${latensi.toFixed(4)} seg
+📅  ���𝐀 »  ${data}
+🤖  𝐍𝐎𝐌𝐄 »  ${Bot}
+🔰  𝐏𝐑𝐄𝐅𝐈�𝐎 »  𝓜𝓾𝓵𝓽𝓲𝓹𝓻𝓮𝓯𝓲𝓳𝓸
+⚡  𝐕𝐄𝐋𝐎𝐂𝐈𝐃𝐀𝐃𝐄 »  ${latensi.toFixed(4)} seg
 📲  𝐃𝐈𝐒𝐏𝐎𝐒𝐈𝐓𝐈𝐕𝐎 »  ${deviceType}
-⏳  𝐄𝐍 𝐋𝐈𝐍𝐄𝐀 »  ${runtime(uptime)}
-💾  𝐌𝐄𝐌𝐎𝐑𝐈𝐀 »  ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
-👤  𝐔𝐒𝐔𝐀𝐑𝐈𝐎 »  ${pushname}
+⏳  𝐄� 𝐋𝐈𝐍�𝐀 »  ${runtime(uptime)}
+💾  𝐌𝐄𝐌Ó𝐑𝐈𝐀 »  ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
+👤  𝐔𝐒𝐔Á𝐑𝐈𝐎 »  ${pushname}
 ╚══❖═══════❖══╝
 `
 sock.sendMessage(from, { image: { url: JpgBot }, caption: botinfo }, { quoted: info })
@@ -780,103 +944,103 @@ break
 
 case 'botcompleto':
 case 'bot':
-enviar(`💫 ¿𝙌𝙪𝙞𝙚𝙧𝙚𝙨 𝙪𝙣 𝙗𝙤𝙩 𝙘𝙤𝙢𝙥𝙡𝙚𝙩𝙤 𝙘𝙤𝙣 𝙨𝙪𝙥𝙚𝙧 𝙁𝙪𝙣𝙘𝙞𝙤𝙣𝙚𝙨? 🤖
+enviar(`💫 ¿𝙌𝙪𝙧 𝙪� 𝙗𝙤𝙩 𝙘𝙤𝙢𝙥𝙡𝙚𝙩𝙤 𝙘𝙤� 𝙨𝙪𝙥𝙚𝙧 𝙁𝙪𝙣çõ𝙨? 🤖
 
 *[💡]  ᴏɴʟɪɴᴇ 24/7*
-*[💡]  sᴏᴘᴏʀᴛᴇ 100% ᴅɪsᴘᴏɴɪʙʟᴇ*
-*[💡]  ᴏʀɢᴀɴɪᴄᴇ sᴜ ɢʀᴜᴘᴏ*
-*[💡]  ᴀᴅᴍɪɴɪsᴛʀᴇ sᴜ ɢʀᴜᴘᴏ*
-*[💡]  ᴘʀᴏᴛᴇᴊᴀ sᴜ ɢʀᴜᴘᴏ*
-*[💡]  ᴠᴇᴜʟᴠᴀ sᴜ ɢʀᴜᴘᴏ ᴍᴀs ᴀᴄᴛɪᴠᴏ*
+*[💡]  sᴜᴘᴏʀᴛᴇ 100% ᴅɪsᴘᴏɴíᴠᴇʟ*
+*[💡]  ᴏʀɢᴀɴɪᴢᴇ sᴇᴜ ɢʀᴜᴘᴏ*
+*[💡]  ᴀᴅᴍɪɴɪsᴛʀᴇ sᴇᴜ ɢʀᴜᴘᴏ*
+*[💡]  ᴘʀᴏᴛᴇᴊᴀ sᴇᴜ ɢʀᴜᴘᴏ*
+*[💡]  ᴛᴏʀɴᴇ sᴇᴜ ɢʀᴜᴘᴏ ᴍᴀɪs ᴀᴛɪᴠᴏ*
 
-  𝙋𝙍𝙀𝘾𝙄𝙊𝙎 𝙋𝘼𝙍𝘼 𝙀𝙇 𝘼𝙇𝙌𝙐𝙄𝙇𝙀𝙍 𝘿𝙀𝙇 𝘽𝙊𝙏
+  𝙋𝙍𝙀Ç𝙎 𝙋𝘼𝙍𝘼 � 𝘼𝙇𝙌𝙐𝙄𝙇𝙀𝙍 𝘿� 𝘽𝙊𝙏
 
-*┠💵⃟ꦿ〢* ᴘʟᴀɴ ǫᴜɪɴᴄᴇɴᴀʟ (15 dias): USD$ 1,50
+*┠💵⃟ꦿ〢* ᴘʟᴀɴ ϙᴜɪɴᴢᴇɴᴀʟ (15 dias): USD$ 1,50
     
-*┠💵⃟ꦿ〢* ᴘʟᴀɴ ᴍᴇɴsᴜᴀʟ (30 dias): USD$ 2,90 ⭐(ᴍᴀs ᴘᴏᴘᴜʟᴀʀ)
+*┠💵⃟ꦿ〢* ᴘʟᴀɴ ᴍᴇɴsᴀʟ (30 dias): USD$ 2,90 ⭐(ᴍᴀɪs ᴘᴏᴘᴜʟᴀʀ)
 
 *┠💵⃟ꦿ〢* ᴘʟᴀɴ sᴇᴍᴇsᴛʀᴀʟ (180 dias): USD$ 13,90
 
 *┠💵⃟ꦿ〢* ᴘʟᴀɴ ᴀɴᴜᴀʟ (360 dias): USD$ 28,90
 
-*┠💵⃟ꦿ〢* ʙᴏᴛ ᴘᴇʀᴢᴏɴᴀʟɪᴢᴀᴅᴏ (30 dias): USD$ 5,90 ⭐(ᴘᴏᴘᴜʟᴀʀ)
+*┠💵⃟ꦿ〢* ʙᴏᴛ ᴘᴇʀsᴏɴᴀʟɪᴢᴀᴅᴏ (30 dias): USD$ 5,90 ⭐(ᴘᴏᴘᴜʟᴀʀ)
 
 
 ╚═════❖•ೋ° 🌟 °ೋ•❖═════╝
 
-*__________🔒 𝙋𝙍𝙊𝙏𝙀𝘾𝘾𝙄𝙊𝙉𝙀𝙎 🔒__________*
+*__________🔒 𝙋𝙍𝙊𝙏𝙀ÇÕ𝙎 🔒__________*
 
 *[🔐] ANTI-LINK*
 *[🔐] ANTI-FAKE*
-*[🔐] ANTI-CONTACTO*
-*[🔐] ANTI-LOCALIZACION*
+*[🔐] ANTI-CONTATO*
+*[🔐] ANTI-LOCALIZAÇÃO*
 *[🔐] ANTI-DOCUMENTO*
 *[🔐] ANTI-VIDEO*
-*[🔐] ANTI-IMAGEN*
+*[🔐] ANTI-IMAGEM*
 *[🔐] ANTI-AUDIO*
 *[🔐] ANTI-VIEWONCE*
 
 *_________🔧 𝙍𝙀𝘾𝙐𝙍𝙎𝙊𝙎 🔧__________*
-*[🛠️] ᴄʀᴇᴀʀ sᴛɪᴄᴋᴇʀs*
-*[🛠️] ᴅᴇsᴄᴀʀɢᴀʀ ᴍᴜsɪᴄᴀs*
-*[🛠️] ᴅᴇsᴄᴀʀɢᴀʀ ᴠɪᴅᴇᴏs*
-*[🛠️] ᴀʙʀɪʀ ʏ ᴄᴇʀʀᴀʀ ɢʀᴜᴘᴏ ᴄᴏɴ ᴛɪᴇᴍᴘᴏ*
-*[🛠️] ʙᴀɴ ʏ ᴋɪᴄᴋ*
-*[🛠️] ᴊᴜᴇɢᴏs*
+*[🛠️] ᴄʀɪᴀʀ sᴛɪᴄᴋᴇʀs*
+*[🛠️] ᴅᴇsᴄᴀʀɢᴀʀ ᴍúsɪᴄᴀs*
+*[🛠️] ᴅᴇsᴄᴀʀɢᴀʀ ᴠíᴅᴇᴏs*
+*[🛠️] ᴀʙʀɪʀ ᴇ ғᴇᴄʜᴀʀ ɢʀᴜᴘᴏ ᴄᴏᴍ ᴛᴇᴍᴘᴏ*
+*[🛠️] ʙᴀɴ ᴇ ᴋɪᴄᴋ*
+*[🛠️] ᴊᴏɢᴏs*
 *[🛠️] ᴄᴏᴍᴀɴᴅᴏs +🔞*
 
 
 *_________👑 𝘾𝙊𝙉𝙏𝙍𝘼𝙏𝙀 👑__________*
-[🔥] *Puedes contratar el bot directamente desde nuestra pagina web oficial*👇
+[🔥] *Você pode contratar o bot diretamente do nosso site oficial*👇
 [💬] https://naufrabot.com/`);
 break
 
 case 'personalizarbot': {
 
-let texto = `🤖 *PERSONALIZAR NAUFRABOT BASE*
+let texto = `🤖 *PERSONALIZAR BENDER BOT*
 
-Este bot es *100% editable*, puedes modificarlo completamente a tu gusto.
+Este bot é *100% editável*, você pode modificá-lo completamente ao seu gosto.
 
-📚 *Pasos para personalizar el bot*
+📚 *Passos para personalizar o bot*
 
-1️⃣ Cambiar nombre del bot
-Edita el nombre en el archivo principal del bot.
+1️⃣ Mudar nome do bot
+Edite o nome no arquivo principal do bot.
 
-2️⃣ Cambiar prefijo
-Puedes cambiar el prefijo de comandos fácilmente.
+2️⃣ Mudar prefixo
+Você pode mudar o prefixo de comandos facilmente.
 
-3️⃣ Cambiar mensajes
-Todos los mensajes del bot son editables.
+3️⃣ Mudar mensagens
+Todas as mensagens do bot são editáveis.
 
-4️⃣ Cambiar logo o foto
-Puedes poner tu propia imagen o marca.
+4️⃣ Mudar logo ou foto
+Você pode colocar sua própria imagem ou marca.
 
-5️⃣ Agregar o quitar comandos
-El bot es modular, puedes modificar las *case*.
+5️⃣ Adicionar ou remover comandos
+O bot é modular, você pode modificar os *case*.
 
 6️⃣ Configurar APIs
-Algunos comandos necesitan API externa.
+Alguns comandos precisam de API externa.
 
-7️⃣ Personalizar menú
-Puedes editar el menú principal.
+7️⃣ Personalizar menu
+Você pode editar o menu principal.
 
-🎥 *Tutoriales completos en YouTube*
+🎥 *Tutoriais completos no YouTube*
 
-He creado *más de 10 videos* explicando cómo personalizar el bot paso a paso 👇
+Criei *mais de 10 vídeos* explicando como personalizar o bot passo a passo 👇
 
 📺 YouTube:
 https://youtube.com/playlist?list=PLsjiVxv1dUKw1bKCmvj43AuUDYOm8ghPF&si=NB_u_fSGZx0HhggK
 
-Ahí encontrarás guías para:
+Lá você encontrará guias para:
 
 ✔ Personalizar comandos
-✔ Modificar funciones
+✔ Modificar funções
 ✔ Configurar APIs
-✔ Crear nuevos sistemas
+✔ Criar novos sistemas
 
-🚀 *NAUFRABOT BASE es totalmente personalizable.*
+🚀 *BENDER BOT é totalmente personalizável.*
 
-¡Haz tu propia versión del bot!`
+Faça sua própria versão do bot!`
 
 await sock.sendMessage(from,{ text: texto },{ quoted: info })
 
@@ -886,48 +1050,48 @@ break
 
 case 'comprarapi': {
 
-let texto = `🌐 *COMPRAR API PARA EL BOT*
+let texto = `🌐 *COMPRAR API PARA O BOT*
 
-Algunos comandos del bot necesitan *API externa* para funcionar correctamente.
+Alguns comandos do bot precisam de *API externa* para funcionar corretamente.
 
-Por ejemplo:
+Por exemplo:
 
-📥 Descargas
-🎨 Generar stickers con texto
-🌍 HTTP requests
-📹 Descargas de Facebook
-📸 Descargas de redes sociales
-⚙️ Inteligencia artificial 
+📥 Downloads
+🎨 Gerar stickers com texto
+🌍 Requisições HTTP
+📹 Downloads de Facebook
+📸 Downloads de redes sociais
+⚙️ Inteligência artificial 
 
-Para usar estas funciones necesitas una *API Key*.
+Para usar estas funções você precisa de uma *API Key*.
 
-🚀 *API oficial de Naufrabot*
+🚀 *API oficial da Bender*
 
-Puedes comprar tu API aquí:
+Você pode comprar sua API aqui:
 
 🔗 https://api.naufrabot.com
 
-📚 *Pasos para usar la API*
+📚 *Passos para usar a API*
 
-1️⃣ Crear una cuenta en la web  
-2️⃣ Comprar tu API Key  
-3️⃣ Copiar la API Key  
-4️⃣ Pegarla en la configuración del bot  
-5️⃣ Reiniciar el bot  
+1️⃣ Criar uma conta no site  
+2️⃣ Comprar sua API Key  
+3️⃣ Copiar a API Key  
+4️⃣ Colar na configuração do bot  
+5️⃣ Reiniciar o bot  
 
-Después de eso los comandos funcionarán correctamente.
+Depois disso os comandos funcionarão corretamente.
 
-✨ *Ventajas de la API*
+✨ *Vantagens da API*
 
-✔ Respuestas rápidas  
-✔ Alta estabilidad  
-✔ Muchas funciones disponibles  
-✔ Soporte continuo  
+✔ Respostas rápidas  
+✔ Alta estabilidade  
+✔ Muitas funções disponíveis  
+✔ Suporte contínuo  
 
-🌐 Web oficial:
+🌐 Site oficial:
 https://api.naufrabot.com
 
-🚀 *Potencia tu bot con la API oficial de Naufrabot.*`
+🚀 *Potencialize seu bot com a API oficial da Bender.*`
 
 await sock.sendMessage(from,{ text: texto },{ quoted: info })
 
@@ -936,7 +1100,7 @@ break
 
 
 case 'grupos':
-enviar(`🧩 𝙂𝙍𝙐𝙋𝙊 𝙊𝙁𝙄𝘾𝙄𝘼𝙇 𝙋𝘼𝙍𝘼 𝙐𝙎𝘼𝙍 𝙐𝙉 𝘽𝙊𝙏 𝘼𝘾𝙏𝙄𝙑𝙊 24/7 👇
+enviar(`🧩 𝙂𝙍𝙐𝙋𝙊 𝙊𝙁𝙄𝘾𝙄𝘼𝙇 𝙋𝘼𝙍𝘼 𝙐𝙎𝘼𝙍 𝙐� 𝘽𝙊𝙏 𝘼𝙏𝙄𝙑𝙊 24/7 👇
 
 ➫https://chat.whatsapp.com/Jd7WKQBsAhkCG4k1SPxK7r?mode=ac_t`);
 break
@@ -945,7 +1109,7 @@ case 'serdueño':
 case 'sercreador':
 case 'owner':
 case 'serowner':
-enviar(`*🧩 Mira el siguiente vídeo donde te enseño cómo convertirte en dueño del bot y usar los comandos de owner 👇*
+enviar(`*🧩 Veja o seguinte vídeo onde ensino como se tornar dono do bot e usar os comandos de owner 👇*
 
 ➫https://youtu.be/LugjBfJEoiQ?si=Z-qaGhjNdC-p3fGS`);
 break
@@ -965,7 +1129,7 @@ https://youtube.com/@naufrazapp_bots?si=Ie89Ben9B1Mn-jOU
 https://naufrabot.com/
 
 *➫ Instagram*
-https://www.instagram.com/naufrabot_official?igsh=cXFwemd0b213dWl1
+https://www.instagram.com/benderbot_official?igsh=cXFwemd0b213dWl1
 
 *➫ Tik tok*
 https://www.tiktok.com/@naufra.zapp?_t=8lMjEw7d9SX&_r=1
@@ -980,37 +1144,37 @@ break
 
 case 'serbot':
     try {
-        const moneybot = `𝗣𝗲𝗻𝘀𝗮𝘀𝘁𝗲 𝗾𝘂𝗲 𝘁𝗲 𝗴𝗲𝗻𝗲𝗿𝗮𝗿𝗶𝗮 𝗲𝗹 𝗖𝗼𝗱𝗶𝗴𝗼 𝗤𝗥, ¿𝗩𝗲𝗿𝗱𝗮𝗱? 😂
+        const moneybot = `𝗣𝗲𝗻𝘀𝗮 𝗾𝘂𝗲 ��𝗰ê 𝗴𝗲𝗮𝗿𝗶𝗮 � 𝗖ó𝗶𝗴𝗼 𝗤𝗥, 𝗩𝗲𝗿𝗱𝗮𝗱𝗲? 😂
 
-𝗟𝗮𝗺𝗲𝗻𝘁𝗮𝗯𝗹𝗲𝗺𝗲𝗻𝘁𝗲, *𝗲𝗻 𝗲𝘀𝘁𝗲 𝗯𝗼𝘁 𝗻𝗼 𝗽𝘂𝗲𝗱𝗲𝘀 𝘀𝗲𝗿 𝘀𝘂𝗯 𝗯𝗼𝘁* 𝗽𝗼𝗿𝗾𝘂𝗲 𝗲𝘀𝗼 𝗰𝗼𝗺𝗽𝗿𝗼𝗺𝗲𝘁𝗲 𝗹𝗼𝘀 𝗿𝗲𝗰𝘂𝗲𝗿𝘀𝗼𝘀 𝗱𝗲𝗹 𝘀𝗲𝗿𝘃𝗶𝗱𝗼𝗿 𝘆 𝗹𝗼 𝗵𝗮𝗰𝗲 𝗺𝗮𝘀 𝗹𝗲𝗻𝘁𝗼.  
-𝗦𝗶 𝗿𝗲𝗮𝗹𝗺𝗲𝗻𝘁𝗲 𝗾𝘂𝗲𝗿𝗲𝘀 𝘀𝗲𝗿 𝘀𝘂𝗯 𝗯𝗼𝘁, 𝗽𝘂𝗲𝗱𝗲𝘀 𝗼𝗯𝘁𝗲𝗻𝗲𝗿 𝗺𝗮𝘀 𝗶𝗻𝗳𝗼𝗿𝗺𝗮𝗰𝗶𝗼𝗻 𝗲𝗻 𝗻𝘂𝗲𝘀𝘁𝗿𝗮 𝗽𝗮𝗴𝗶𝗻𝗮 𝘄𝗲𝗯:  
+𝗟𝗮𝗺𝗲𝗻𝘁𝗮���𝗲𝗻𝘁𝗲, *𝗲𝘀𝘁𝗲 𝗯𝗼𝘁 𝗻ã𝗼 𝗽�𝗲 𝘀𝗲𝗿 𝘀𝗲� 𝘀𝘂𝗯 𝗯𝗼𝘁* 𝗽𝗼𝗿𝗾𝘂𝗲 �𝘀�� 𝗰𝗼𝗺𝗽𝗿𝗼𝗺𝗲𝘁𝗲 𝘀 𝗿𝗲𝗰𝘂𝘀𝗼𝘀 𝗱� 𝘀𝗲𝗿𝘃𝗶𝗱𝗼𝗿 �  ����𝗮 𝗺𝗮�� 𝗹𝗲𝗻𝘁𝗼.  
+𝗦� �𝗼𝗰ê �𝗲𝗮𝗹𝗺𝗲𝗻𝘁𝗲 𝗾𝘂�𝘀�𝗿 ��� 𝘀𝗲� 𝘀𝘂𝗯 𝗯𝗼𝘁, 𝗽�𝗲 𝗼𝗯𝘁𝗲 𝗺𝗮�� 𝗶𝗻𝗳𝗼𝗿𝗺𝗮çõ�� 𝗲� 𝗻��𝘀 𝗽á𝗶𝗻𝗮 𝘄𝗲𝗯:  
 🔗 https://naufrabot.com/subbots/`;
 
-        // Enviar el mensaje final
+        // Enviar mensagem final
         await enviar(moneybot);
 
     } catch (e) {
         console.error(e);
-        enviar("Error al procesar el comando.");
+        enviar("Erro ao processar o comando.");
     }
 break;
 
 
-//AJUSTES DEL GRUPO
+//CONFIGURAÇÕES DO GRUPO
 
 case 'welcome' : 
 case 'bienvenida' :
 if (!isGroup) return 
 if(args.length<1) return enviar('「 𝟏 𝐏𝐚𝐫𝐚 𝐀𝐜𝐭𝐢𝐯𝐚𝐫 𝐲 𝟎 𝐏𝐚𝐫𝐚 𝐃𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐫 」 ')
 if(!isGroupAdmins) return enviar(respuesta.admin)
-if(!isBotGroupAdmins) return enviar('El bot necesita ser administrador') 
+if(!isBotGroupAdmins) return enviar('O bot precisa ser administrador') 
 if(Number(args[0])=== 1) {
-if(iswelkom) return enviar('「 ✅ 𝐋𝐚 𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐚 𝐘𝐚 𝐄𝐬𝐭𝐚 𝐀𝐜𝐭𝐢𝐯𝐚𝐝𝐚 𝐄𝐧 𝐄𝐥 𝐆𝐫𝐮𝐩𝐨 」 ')
+if(iswelkom) return enviar('「 ✅ � 𝐁���-𝐯�𝐧𝐚𝐬 �á 𝐄𝐬𝐭á 𝐀𝐢𝐯𝐚𝐝𝐚 �� 𝐫𝐮𝐩𝐨 」 ')
 welkom.push(from)
 fs.writeFileSync('./settings/Grupo/Json/welkom.json',JSON.stringify(welkom))
 enviar('「 ✅ 𝐀𝐜𝐭𝐢𝐯𝐚𝐝𝐨 𝐄𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞 」')
 } else if (Number(args[0])=== 0 ) {
-if (!iswelkom) return enviar('「 ❌ 𝐋𝐚 𝐛𝐢𝐞𝐧𝐯𝐞𝐧𝐢𝐝𝐚 𝐧𝐨 𝐞𝐬𝐭𝐚 𝐚𝐜𝐭𝐢𝐯𝐚𝐝𝐚」')
+if (!iswelkom) return enviar('「 ❌ � 𝐛���-𝐯�𝐧𝐚𝐬 𝐧ã𝐨 𝐞𝐬𝐭á 𝐚𝐢𝐯𝐚𝐝𝐚」')
 welkom.splice(from,1)
 fs.writeFileSync('./settings/Grupo/Json/welkom.json',JSON.stringify(welkom))
 enviar('❌ 𝐃𝐞𝐬𝐚𝐜𝐭𝐢𝐯𝐚𝐝𝐨 𝐞𝐱𝐢𝐭𝐨𝐬𝐚𝐦𝐞𝐧𝐭𝐞 ')
@@ -1023,13 +1187,13 @@ break
 case 'bangp':{
   if (!isGroup) return  
   if(!isOwner) return enviar(respuesta.miowner)
-  if(!isBanGp) { // antes estaba al revés
+  if(!isBanGp) { // antes estava ao contrário
     const JsonGp = './settings/Grupo/Json/grupo.json';
     bngp.push(from)
     fs.writeFileSync(JsonGp, JSON.stringify(bngp));
-    enviar('✅ GRUPO BANEADO EXITOSAMENTE')
+    enviar('✅ GRUPO BANEADO COM SUCESSO')
   } else {
-    enviar('⚠️ El GRUPO YA SE ENCUENTRA BANEADO')
+    enviar('⚠️ O GRUPO JÁ ESTÁ BANEADO')
   }
 }
 break
@@ -1037,13 +1201,13 @@ break
 case 'unbangp':{
   if (!isGroup) return  
   if(!isOwner) return enviar(respuesta.miowner)
-  if(isBanGp) { // antes también estaba al revés
+  if(isBanGp) { // antes também estava ao contrário
     const JsonGp = './settings/Grupo/Json/grupo.json';
     bngp = bngp.filter(g => g !== from)
     fs.writeFileSync(JsonGp, JSON.stringify(bngp));
-    enviar('✅ GRUPO DESBANEADO EXITOSAMENTE')
+    enviar('✅ GRUPO DESBANEADO COM SUCESSO')
   } else {
-    enviar('⚠️ El GRUPO YA SE ENCUENTRA DESBANEADO')
+    enviar('⚠️ O GRUPO JÁ ESTÁ DESBANEADO')
   }
 }
 break
@@ -1065,7 +1229,7 @@ teks += ` ➫[${nu.toString()}] @${mem.id.split('@')[0]}\n`
 members_id.push(mem.id)
 }
 mentions(`
-🗣️💬 ❝¡𝑳𝑳𝒂𝒎𝒂𝒅𝒂 𝒂 𝒕𝒐𝒅𝒐 𝑬𝒍 𝑴𝒖𝒏𝒅𝒐!❞ \n\n➫ ${teks}
+🗣️💬 ❝¡𝑳𝑳𝒂𝒎𝒂𝒅𝒂 𝒂 𝒕𝒐𝒅𝒐 𝑴𝒖𝒏𝒅𝒐!❞ \n\n➫ ${teks}
 `, members_id, true)
 break
 
@@ -1076,7 +1240,7 @@ if(!isGroupAdmins) return enviar(respuesta.admin)
 men = []
 num = 0
 teks = `
-🗣💬 ❝𝑨𝒕𝒆𝒏𝒄𝒊𝒐𝒏 𝒂 𝒆𝒔𝒕𝒆 𝑨𝒏𝒖𝒏𝒄𝒊𝒐.❞
+🗣💬 ❝𝑨𝒕𝒆𝒏çã𝒐 𝒂 𝒆𝒔𝒕𝒆 𝑨𝒏ú𝒏𝒄𝒊𝒐.❞
  👉 ❝ ${q} ❞ 👈 
 \n`
 for(let m of groupMembers){
@@ -1090,23 +1254,23 @@ break
 
 
 case 'modoadmin': {
-  if (!isGroup) return enviar("⚠️ Este comando solo se puede usar en grupos.");
-  if (!isGroupAdmins) return enviar("🚫 Solo los administradores pueden cambiar este modo.");
+  if (!isGroup) return enviar("⚠️ Este comando só pode ser usado em grupos.");
+  if (!isGroupAdmins) return enviar("🚫 Apenas administradores podem mudar este modo.");
   
   const JsonModoAdmin = './settings/Grupo/Json/modo_admin.json';
   let modoAdmin = JSON.parse(fs.readFileSync(JsonModoAdmin));
 
-  const estado = args[0]; // puede ser "1" o "0"
+  const estado = args[0]; // pode ser "1" ou "0"
 
-  if (!estado) return enviar("🧩 Usa el comando correctamente:\n\n*modoadmin 1* → Activar modo admin\n*modoadmin 0* → Desactivar modo admin");
+  if (!estado) return enviar("🧩 Use o comando corretamente:\n\n*modoadmin 1* → Ativar modo admin\n*modoadmin 0* → Desativar modo admin");
 
   if (estado === "1") {
     if (!modoAdmin.includes(from)) {
       modoAdmin.push(from);
       fs.writeFileSync(JsonModoAdmin, JSON.stringify(modoAdmin, null, 2));
-      enviar("✅ *Modo admin activado* — Ahora solo los administradores pueden usar el bot en este grupo.");
+      enviar("✅ *Modo admin ativado* — Agora apenas administradores podem usar o bot neste grupo.");
     } else {
-      enviar("⚠️ El modo admin ya estaba activado en este grupo.");
+      enviar("⚠️ O modo admin já estava ativado neste grupo.");
     }
   } 
   
@@ -1114,14 +1278,14 @@ case 'modoadmin': {
     if (modoAdmin.includes(from)) {
       modoAdmin = modoAdmin.filter(g => g !== from);
       fs.writeFileSync(JsonModoAdmin, JSON.stringify(modoAdmin, null, 2));
-      enviar("🟢 *Modo admin desactivado* — Todos los miembros pueden usar el bot nuevamente.");
+      enviar("🟢 *Modo admin desativado* — Todos os membros podem usar o bot novamente.");
     } else {
-      enviar("⚠️ El modo admin ya estaba desactivado en este grupo.");
+      enviar("⚠️ O modo admin já estava desativado neste grupo.");
     }
   } 
   
   else {
-    enviar("❌ Solo puedes usar *1* para activar o *0* para desactivar.");
+    enviar("❌ Você só pode usar *1* para ativar ou *0* para desativar.");
   }
 }
 break;
@@ -1132,9 +1296,9 @@ case 'hidetag' :
 case 'notify' :
   if(!isReg) return enviar(respuesta.registro)
   if(!isGroupAdmins) return enviar(respuesta.admin)
-if(!q) return enviar('Digite un texto ejemplo !notify hola hermanos 🔥')
-if(!isGroup) return enviartexto ('Enserio , hidetag en un chat')
-if(!isGroupAdmins) return enviartexto ("El bot necesita ser administrador")
+if(!q) return enviar('Digite um texto exemplo !notify olá irmãos 🔥')
+if(!isGroup) return enviartexto ('Sério , hidetag em um chat')
+if(!isGroupAdmins) return enviartexto ("O bot precisa ser administrador")
 			var group = await sock.groupMetadata(from)
 			var member = group['participants']
 			var mem = []
@@ -1158,38 +1322,38 @@ if(!isGroupAdmins) return enviar(respuesta.admin)
 if(!isBotGroupAdmins) return enviar (respuesta.botadmin)
 let mentioned = obtenerMencionado(info);
 
-    if (!mentioned) return enviar("⚠️ Debes mencionar a alguien para usar este comando.");
+    if (!mentioned) return enviar("⚠️ Você deve mencionar alguém para usar este comando.");
 
 if(mentioned === BotNumber || mentioned === owner) return enviar('🤨')
 await sock.groupParticipantsUpdate(from, [mentioned] , 'remove')
-enviar('Accion realizada exitosamente')
+enviar('Ação realizada com sucesso')
 }
 break 
      
 
 
 
-// ⚙️ Comando para activar/desactivar antilink
+// ⚙️ Comando para ativar/desativar antilink
 case 'antilink':
   if (!isGroupAdmins) return enviar(respuesta.admin)
   if (!isBotGroupAdmins) return enviar(respuesta.botadmin)
-  if (args.length < 1) return enviar(`𝐃𝐈𝐆𝐈𝐓𝐄 𝟏 𝐏𝐀𝐑𝐀 𝐀𝐂𝐓𝐈𝐕𝐀𝐑 𝐘 𝟎 𝐏𝐀𝐑𝐀 𝐃𝐄𝐒𝐀𝐂𝐓𝐈𝐕𝐀𝐑`)
+  if (args.length < 1) return enviar(`𝐃𝐈𝐆𝐈𝐓𝐄 𝟏 𝐏𝐀𝐑𝐀 𝐀𝐓𝐈𝐕𝐀𝐑 � 𝟎 𝐏𝐀𝐑𝐀 𝐃𝐄𝐒𝐀𝐓𝐈𝐕𝐀𝐑`)
 
   if (Number(args[0]) === 1) {
-    if (isAntiLink) return enviar('✅ El antilink ya está activado en este grupo')
+    if (isAntiLink) return enviar('✅ O antilink já está ativado neste grupo')
     antilink.push(from)
     fs.writeFileSync('./settings/Grupo/Json/antilink.json', JSON.stringify(antilink, null, 2))
-    enviar('✅ ● ️𝐀𝐍𝐓𝐈𝐋𝐈𝐍𝐊 𝐀𝐂𝐓𝐈𝐕𝐀𝐃𝐎 ● ️')
+    enviar('✅ ● ️𝐀𝐍𝐓𝐈𝐋𝐈𝐍𝐊 𝐀𝐓𝐈𝐕𝐀𝐃𝐎 ● ️')
   } 
   else if (Number(args[0]) === 0) {
-    if (!isAntiLink) return enviar('❌ El antilink ya está desactivado en este grupo')
+    if (!isAntiLink) return enviar('❌ O antilink já está desativado neste grupo')
     const index = antilink.indexOf(from)
     antilink.splice(index, 1)
     fs.writeFileSync('./settings/Grupo/Json/antilink.json', JSON.stringify(antilink, null, 2))
-    enviar('❌ ● ️𝐀𝐍𝐓𝐈𝐋𝐈𝐍𝐊 𝐃𝐄𝐒𝐀𝐂𝐓𝐈𝐕𝐀𝐃𝐎 ● ️')
+    enviar('❌ ● ️𝐀𝐍𝐓𝐈𝐋𝐈𝐍𝐊 𝐃𝐄𝐒𝐀𝐓𝐈𝐕𝐀𝐃𝐎 ● ️')
   } 
   else {
-    enviar(`𝐃𝐈𝐆𝐈𝐓𝐄 𝟏 𝐏𝐀𝐑𝐀 𝐀𝐂𝐓𝐈𝐕𝐀𝐑 𝐘 𝟎 𝐏𝐀𝐑𝐀 𝐃𝐄𝐒𝐀𝐂𝐓𝐈𝐕𝐀𝐑`)
+    enviar(`𝐃𝐈𝐆𝐈𝐓𝐄 𝟏 𝐏𝐀𝐑𝐀 𝐀𝐓𝐈𝐕𝐀𝐑 � 𝟎 𝐏𝐀𝐑𝐀 𝐃𝐄𝐒𝐀𝐓𝐈𝐕𝐀𝐑`)
   }
 break;
 
@@ -1201,34 +1365,34 @@ if (!isGroupAdmins) return enviar(respuesta.admin)
 if (!isBotGroupAdmins) return enviar(respuesta.botadmin)
 
 if (!args[0]) {
-return enviar(`⚙️ *Configuración del grupo*
+return enviar(`⚙️ *Configuração do grupo*
 
-Usa:
-• */grupo abrir* → Abrir el grupo
-• */grupo cerrar* → Cerrar el grupo`)
+Use:
+• */grupo abrir* → Abrir o grupo
+• */grupo cerrar* → Fechar o grupo`)
 }
 
 if (args[0] === 'abrir') {
 
 await sock.groupSettingUpdate(from, 'not_announcement')
 
-enviar(`🟢 *GRUPO ABIERTO*
+enviar(`🟢 *GRUPO ABERTO*
 
-Ahora todos los miembros pueden enviar mensajes.`)
+Agora todos os membros podem enviar mensagens.`)
 
 } else if (args[0] === 'cerrar') {
 
 await sock.groupSettingUpdate(from, 'announcement')
 
-enviar(`🔒 *GRUPO CERRADO*
+enviar(`🔒 *GRUPO FECHADO*
 
-Solo los administradores pueden enviar mensajes.`)
+Apenas administradores podem enviar mensagens.`)
 
 } else {
 
-enviar(`⚠️ Opción inválida
+enviar(`⚠️ Opção inválida
 
-Usa:
+Use:
 • */grupo abrir*
 • */grupo cerrar*`)
 }
@@ -1237,136 +1401,84 @@ Usa:
 break
 
 
-// STICKERS 
+//STICKERS 
 case 's':
 case 'sticker':
   if(!isReg) return enviar(respuesta.registro)
-  if(coins < 1) return enviar(respuesta.coins)
 var RSM = info.message?.extendedTextMessage?.contextInfo?.quotedMessage
 var boij2 = RSM?.imageMessage || info.message?.imageMessage || RSM?.viewOnceMessageV2?.message?.imageMessage || info.message?.viewOnceMessageV2?.message?.imageMessage || info.message?.viewOnceMessage?.message?.imageMessage || RSM?.viewOnceMessage?.message?.imageMessage
 var boij = RSM?.videoMessage || info.message?.videoMessage || RSM?.viewOnceMessageV2?.message?.videoMessage || info.message?.viewOnceMessageV2?.message?.videoMessage || info.message?.viewOnceMessage?.message?.videoMessage || RSM?.viewOnceMessage?.message?.videoMessage
 if(boij2){
-enviar(`Creando tu sticker supere un poco ❤️`)
+await sock.sendMessage(from, { react: { text: "⏳", key: info.key } });
 var pack = `
 👑 Dueño 👑
- ✅Naufra
+ ✅Bender
 ⭐𝐂𝐫𝐞𝐚𝐝𝐨 𝐩𝐨𝐫 :
  ${pushname} `
 var author2 = ` 
 🤖 𝐁𝐨𝐭 🤖
- ⃟NaufraBot
+ ⃟Bender Bot
 💐 𝐆𝐫𝐮𝐩𝐨💐
 ${groupName} `
 owgi = await getFileBuffer(boij2, 'image')
 let encmediaa = await sendImageAsSticker2(sock, from, owgi, info, { packname:pack, author:author2})
 await DLT_FL(encmediaa)
 await addXp(sender,1)
-await delkoin(sender,1)
+// await delkoin(sender,1)
 } else if(boij && boij.seconds < 11){
-enviar(`Creando tu Sticker ${pushname}`)
+await sock.sendMessage(from, { react: { text: "⏳", key: info.key } });
 var pack = `
 👑 Dueño 👑
- ✅Naufra
+ ✅Bender
 ⭐𝐂𝐫𝐞𝐚𝐝𝐨 𝐩𝐨𝐫 :
  ${pushname} `
 var author2 = ` 
 🤖 𝐁𝐨𝐭 🤖
- ⃟NaufraBot
+ ⃟Bender Bot
 💐 𝐆𝐫𝐮𝐩𝐨💐
 ${groupName} `
 owgi = await getFileBuffer(boij, 'video')
 let encmedia = await sendVideoAsSticker2(sock, from, owgi, info, { packname:pack, author:author2})
 await DLT_FL(encmedia)
 await addXp(sender,1)
-await delkoin(sender,1)
+// await delkoin(sender,1)
 } else {
-return enviar(`Marque una imagen o \nUn vídeo máximo de 10 segundos ⏲️`)
+return enviar(`Marque uma imagem ou \nUm vídeo máximo de 10 segundos ⏲️`)
 }
 break
 
-///Nesecitas clave API//
-case "attp":
-case "attp2":
-case "attp3":
-if(!isReg) return enviar(respuesta.registro)
-if (!q) return enviar("Coloca un texto o emoji después del comando")
-
-try {
-
-let url = `${APINAUFRA}/api/${messagesC}?text=${encodeURIComponent(q)}&apikey=${NAUFRA_KEY}`
-
-let res = await fetch(url)
-let buffer = await res.buffer()
-
-await sock.sendMessage(from, {
-sticker: buffer
-}, { quoted: info })
-
-} catch (e) {
-console.log(e)
-enviar("Error al crear sticker")
-}
-
-break
-
-
-
-case 'ship': {
-if(!isReg) return enviar(respuesta.registro)
-if (!isGroup) return enviar('solo disponible en grupos')
-
-if (!info.message?.extendedTextMessage?.contextInfo?.mentionedJid || 
-info.message.extendedTextMessage.contextInfo.mentionedJid.length < 2)
-return enviar('💞 Menciona a dos personas para calcular su *nivel de amor* 💘')
-
-const users = info.message.extendedTextMessage.contextInfo.mentionedJid
-
-const user1 = users[0]
-const user2 = users[1]
-
-const loveRate = Math.floor(Math.random() * 100) + 1
-
-let foto1, foto2
-
-try {
-foto1 = await sock.profilePictureUrl(user1, 'image')
-} catch {
-foto1 = 'https://i.postimg.cc/VkqDjMdJ/75499-coraz-el-dia-de-san-valentin-amor-corazon-de-amor-x750.jpg'
-}
-
-try {
-foto2 = await sock.profilePictureUrl(user2, 'image')
-} catch {
-foto2 = 'https://i.postimg.cc/VkqDjMdJ/75499-coraz-el-dia-de-san-valentin-amor-corazon-de-amor-x750.jpg'
-}
-
-const fondo = 'https://telegra.ph/file/394705b02d10509c435cf.jpg'
-
-const shipImg = `${APINAUFRA}/api/canvas/ship?apikey=${NAUFRA_KEY}&foto1=${encodeURIComponent(foto1)}&foto2=${encodeURIComponent(foto2)}&fundo=${encodeURIComponent(fondo)}&mat=${loveRate}`
-
-await sock.sendMessage(from, {
-image: { url: shipImg },
-caption: `💘 *𝐂𝐀𝐋𝐂𝐔𝐋𝐀𝐃𝐎𝐑 𝐃𝐄 𝐀𝐌𝐎𝐑* 💘
-
-@${user1.split('@')[0]} 💖 @${user2.split('@')[0]}
-
-• *${loveRate}% de Amor Eterno* 🌹`,
-mentions: [user1, user2]
-
-}, { quoted: info })
-
+case 'rename':
+case 'renomear': {
+  if(!isReg) return enviar(respuesta.registro)
+  if(!isQuotedSticker) return enviar('[❗] Marque um sticker para renomear.')
+  if(!q) return enviar('[❗] Use: !rename nome/autor\nExemplo: !rename Meu Pack/Meu Nome')
+  
+  try {
+    const [packName, authorName] = q.split('/');
+    if(!packName || !authorName) return enviar('[❗] Use: !rename nome/autor\nExemplo: !rename Meu Pack/Meu Nome')
+    
+    enviar('`Renomeando sticker...`')
+    buff = await getFileBuffer(info.message.extendedTextMessage.contextInfo.quotedMessage.stickerMessage, 'sticker')
+    let encmedia = await sendImageAsSticker2(sock, from, buff, info, { packname: packName, author: authorName })
+    await DLT_FL(encmedia)
+    await addXp(sender, 2)
+    //enviar('✅ Sticker renomeado com sucesso!')
+  } catch {
+    enviar('❌ Ocorreu um erro ao renomear o sticker.')
+  }
 }
 break
 
-                
+///Você precisa de chave de API//
+
+
                 
                 case 'emojimix': {
     if (!isReg) return enviar(respuesta.registro);
-    if (coins < 1) return enviar(respuesta.coins);
-
+    
     if (!q) return enviar(`
-🔁𝑪𝒐𝒎𝒃𝒊𝒏𝒂 𝒆𝒎𝒐𝒋𝒊𝒔 𝒚 𝒅𝒆𝒔𝒄𝒖𝒃𝒓𝒆 𝒏𝒖𝒆𝒗𝒂𝒔 𝒄𝒓𝒆𝒂𝒄𝒊𝒐𝒏𝒆𝒔‼️
-☑️𝑬𝒔𝒄𝒓𝒊𝒃𝒆 𝒆𝒍 𝒄𝒐𝒎𝒂𝒏𝒅𝒐 𝒂𝒔í:
+🔁𝑪𝒐𝒎𝒃𝒊𝒏� 𝒆𝒎𝒐𝒋𝒊𝒔 � 𝒅𝒆𝒔𝒄𝒖𝒃𝒓� 𝒏�𝒗𝒂𝒔 𝒄𝒓𝒊�çõ𝒆𝒔‼️
+☑️𝑬𝒔𝒄𝒓��� � 𝒄𝒐𝒎𝒂𝒏𝒅𝒐 𝒂𝒔𝒊𝒎:
 👉 *!emojimix 😊+😂*`);
 
     enviar('`🔁 𝑴𝒆𝒛𝒄𝒍𝒂𝒏𝒅𝒐...`');
@@ -1382,47 +1494,47 @@ break
             };
             sock.sendMessage(from, templateMessage, { quoted: info });
 
-            // Reducir 1 moneda y agregar 1 de experiencia
-            await delkoin(sender, 1);
+            // Reduzir 1 coin e adicionar 1 experiência
+            // await delkoin(sender, 1);
             await addXp(sender, 1);
         }
         
     } catch (err) {
-        enviar('❌ Ocurrió un error, intenta con otros emojis.');
-        console.log(err);
+        enviar('❌ Ocorreu um erro, tente com outros emojis.');
+        console.log(chalk.yellowBright(err));
     }
 }
 break;
 
 
-///////////////////HERRAMIENTAS///////////
+///////////////////FERRAMENTAS///////////
 
 case 'amp3':
 case 'tomp3':
   if(!isReg) return enviar(respuesta.registro)
-if(!isQuotedVideo) return enviar (`[❗] ${sender.split('@')[0]}, Marque un video `)
-enviar('`Creando....`')
+if(!isQuotedVideo) return enviar (`[❗] ${sender.split('@')[0]}, Marque um vídeo `)
+enviar('`Criando....`')
 tomp = await getFileBuffer(info.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage , 'video')
 	sock.sendMessage(from,{audio :  tomp, mimetype: 'audio/mpeg'},{ quoted: info })		
 		await addXp(sender,6)
-		await delkoin(sender,3)
+		// await delkoin(sender,3)
 				break 
 				
 		
   case 'toimg':
   if(!isReg) return enviar(respuesta.registro)
-if(!isQuotedSticker) return enviar('[❗]• 𝗠𝗔𝗥𝗤𝗨𝗘 𝗨𝗡 𝗦𝗧𝗜𝗖𝗞𝗘𝗥 •')
+if(!isQuotedSticker) return enviar('[❗]• 𝗠𝗔𝗥𝗤𝗨𝗘 𝗨� 𝗦𝗧𝗜𝗖𝗞𝗘𝗥 •')
 try {
-enviar('`Creando....`')
+enviar('`Criando....`')
 buff = await getFileBuffer(info.message.extendedTextMessage.contextInfo.quotedMessage.stickerMessage, 'sticker')
-sock.sendMessage(from, {image: buff , caption : ` [❗] *${pushname}*, Aquí tienes tu pedido `},{quoted : info }).catch(e => {
-console.log(e);
-enviar('Nose pudo convertir a imagen verifica que sea un sticker y no un gif ❌')
+sock.sendMessage(from, {image: buff , caption : ` [❗] *${pushname}*, Aqui está seu pedido `},{quoted : info }).catch(e => {
+console.log(chalk.redBright(e));
+enviar('Não foi possível converter para imagem, verifique se é um sticker e não um gif ❌')
 })
 await addXp(sender,3)
-await delkoin(sender,2)
+// await delkoin(sender,2)
 } catch {
-enviar('ocurrio un error ')
+enviar('ocorreu um erro ')
 }
 break
 
@@ -1430,7 +1542,14 @@ break
 case 'calcular':
   case 'cal' :
           if (!isReg) return enviar(respuesta.registro)
-          if(args.length == 0) return enviar( ` ┣「 𝗢𝗣𝗘𝗥𝗔𝗖𝗜𝗢𝗡𝗘𝗦 」┫\n╭──────────────────\n│➫┇+ 𝐒𝐮𝐦𝐚\n│➫┇- 𝐑𝐞𝐬𝐭𝐚\n│➫┇/ 𝐃𝐢𝐯𝐢𝐬𝐢𝐨𝐧\n│➫┇* 𝐌𝐮𝐥𝐭𝐢𝐩𝐥𝐢𝐜𝐚𝐜𝐢𝐨𝐧\n│➫ 𝔼𝕛𝕖𝕞𝕡𝕝𝕠 : 𝐂𝐚𝐥 𝟒+𝟒\n╰──────────────────`)
+          if(args.length == 0) return enviar( ` ┣「 𝗢𝗣𝗘𝗥𝗔ÇÕ𝗦 」┫
+╭──────────────────
+│➫┇+ 𝐒�𝐦𝐚
+│➫┇- ���𝐭��çã𝐨
+│➫┇/ 𝐃𝐢𝐯𝐢𝐬ã
+│➫┇* 𝐌𝐮𝐥𝐭𝐢𝐩𝐥𝐢𝐜𝐚çã
+│➫ 𝔼�𝕖𝕞𝕡𝕝𝕠 : 𝐂𝐚𝐥 𝟒+𝟒
+╰──────────────────`)
             const resultzx = eval(q)
             await sleep(1000)
             enviar(`\n╭──────────────────\n││「 𝗥𝗘𝗦𝗨𝗟𝗧𝗔𝗗𝗢𝗦 」│\n│➫┇${q} = *${resultzx}*\n╰──────────────────`)
@@ -1439,83 +1558,10 @@ case 'calcular':
 
 
 
-//nesecitas api
-case 'gpt': case 'gpt4': case 'openai': case 'chatgpt':
-case 'ia': {
-
-  if (!q) return enviar('❌ Escribe una pregunta');
-
-  try {
-  
-    const apiURL = `${APINAUFRA}/chatgpt?apikey=${NAUFRA_KEY}&prompt=${encodeURIComponent(q)}&t=${Date.now()}`;
-
-    const data = await fetchJson(apiURL);
-
-    const mensaje = `🤖 *ChatGPT*\n\n${data.respuesta}`;
-
-    await sock.sendMessage(from, { text: mensaje }, { quoted: info });
-
-  } catch (e) {
-    console.log("ERROR IA:", e);
-    enviar('❌ Error usando la IA');
-  }
-
-}
-break;
-
+//você precisa de api
 //nesecita API 
 
-case 'ytsearch': {
-
-    if (!q) return enviar('❌ Escribe un nombre para buscar en YouTube');
-
-    
-    try {
-
-        
-        const apiURL = `${APINAUFRA}/ytsearch?apikey=${NAUFRA_KEY}&q=${encodeURIComponent(q.trim())}`;
-
-        console.log("🔗 Llamando a API:", apiURL);
-
-        const apiData = await fetchJson(apiURL);
-
-        if (!apiData || !apiData.status)
-            return reply('❌ No se pudo obtener respuesta válida de la API');
-
-        if (!apiData.resultados || !Array.isArray(apiData.resultados))
-            return reply('❌ La API devolvió datos inválidos');
-
-        if (apiData.resultados.length === 0)
-            return reply('❌ No se encontraron resultados');
-
-        const firstVideo = apiData.resultados[0];
-
-        let text = `「✦」Resultados para *${q.trim()}*\n\n`;
-
-        for (const video of apiData.resultados) {
-
-            text += `❀ *${video.title}*\n`;
-            text += `> ✐ Canal » *${video.author}*\n`;
-            text += `> ⴵ Duración » *${video.duration}*\n`;
-            text += `> 👁 Visitas » *${video.views.toLocaleString()}*\n`;
-            text += `> 🜸 Link » _${video.url}_\n\n`;
-        }
-
-        await sock.sendMessage(from, {
-            image: { url: firstVideo.thumbnail },
-            caption: text.trim()
-        }, { quoted: info });
-
-    } catch (e) {
-        console.log("❌ ERROR YTSEARCH CASE:", e);
-        enviar('❌ Error buscando videos en YouTube');
-    }
-
-}
-break;
-
-
-//Economía niveles y experiencia 
+//Níveis econômicos e experiência 
 
 case 'perfil' : case 'cartera' :
 case 'nivel' : case 'minivel' : {
@@ -1540,14 +1586,14 @@ foto = 'https://i.postimg.cc/85NsPp8j/20260131-152616.jpg'
 }
 
 const Mp = `
-╔══✦❖【 𝑻𝒖 𝑷𝒆𝒓𝒇𝒊𝒍 】❖✦══╗
-🏷️  𝐍𝐨𝐦𝐛𝐫𝐞      »  @${sender.split('@')[0]}
+╔══✦❖【 ��� 𝑷𝒆𝒓𝒇𝒊𝒍 】❖✦══╗
+🏷️  𝐍𝐨𝐦      »  @${sender.split('@')[0]}
 ⚔️  𝐑𝐚𝐧𝐠𝐨       »  ${Mlevel}
-👑  𝐑𝐞𝐩𝐮𝐭𝐚𝐜𝐢𝐨́𝐧  »  ${myrep2}
-💰  𝐃𝐢𝐧𝐞𝐫𝐨     »  ₹${saldo} 𝐑𝐮𝐩𝐢𝐚𝐬
-📈  𝐍𝐢𝐯𝐞𝐥       »  ${Mnv} ➜ ${Mnv + 1}
+👑  𝐑𝐞𝐩𝐮𝐭𝐚çã  »  ${myrep2}
+💰  𝐃𝐢𝐧����𝐨     »  ₹${saldo} 𝐑𝐮𝐩𝐢𝐚𝐬
+📈  𝐍í𝐞𝐥       »  ${Mnv} ➜ ${Mnv + 1}
 📚  𝐄𝐗𝐏         »  ${Xp} / ${Rxxp + 1000}
-╚══✦❖【 𝐏𝐫𝐨𝐠𝐫𝐞𝐬𝐨 】❖✦══╝
+╚══✦❖【 𝐏𝐫𝐨𝐠𝐫𝐞𝐬�� 】❖✦══╝
 ▰▰ ${Mrxp} ▰▰
 `
 
@@ -1559,76 +1605,75 @@ mentions: [sender]
 
 }
 break
-//comando tragamonedas 
+//comando de caça-níqueis 
 case 'tragamonedas':
 case 'tragamoneda':
-if (!isReg) return enviar("Debes registrarte para jugar.");
-const apuestas = 1; // Coste por jugar
-if (coins < apuestas) return enviar("No tienes suficientes Coins 🪙 para jugar.");
+if (!isReg) return enviar("Você deve se registrar para jogar.");
+const apuestas = 1; // Custo por jogar
 
 const ahora = Date.now();
 const tiempoGuardado = timeClaimTraga(sender) || 0;
 const tiempoRestante = tiempoGuardado - ahora;
 
 if (tiempoRestante > 0) {
-    return await enviar(`[❗] 𝙴𝚂𝙿𝙴𝚁𝙴 ${runtime(tiempoRestante / 1000)} para volver a jugar.`);
+    return await enviar(`[❗] 𝙴𝚂𝙿𝙴𝚁𝙴 ${runtime(tiempoRestante / 1000)} para jogar novamente.`);
 } else {
     const espera = 8 * 60 * 60 * 1000; // 8 horas
     await addClaimTraga(sender, espera);
 }
 
 
-// Restar una moneda por jugar
-await delkoin(sender, apuestas);
+// Subtrair uma coin para jogar
+// await delkoin(sender, apuestas);
 
-// Lista de símbolos para la tragamonedas
+// Lista de símbolos para caça-níqueis
 const simbolos = ['🥕', '🐰', '🐸', '🦊', '🐱', '🍋', '🔔', '🍒', '🍉', '🍌'];
 
-// Generar filas aleatorias
+// Gerar linhas aleatórias
 const obtenerFila = () => [
     simbolos[Math.floor(Math.random() * simbolos.length)],
     simbolos[Math.floor(Math.random() * simbolos.length)],
     simbolos[Math.floor(Math.random() * simbolos.length)]
 ];
 
-// Generar las tres filas
+// Gerar as três linhas
 const filaArriba = obtenerFila();
 const filaAbajo = obtenerFila();
 
 let filaCentro;
-const probabilidad = Math.random(); // Número entre 0 y 1
+const probabilidad = Math.random(); // Número entre 0 e 1
 
-// 60% de probabilidad de que los tres símbolos del centro sean iguales
+// 60% de probabilidade de que os três símbolos do centro sejam iguais
 if (probabilidad < 0.6) {
     const simboloGanador = simbolos[Math.floor(Math.random() * simbolos.length)];
-    filaCentro = [simboloGanador, simboloGanador, simboloGanador]; // Hacer que las 3 sean iguales
+    filaCentro = [simboloGanador, simboloGanador, simboloGanador]; // Fazer todas 3 iguais
 } else {
-    filaCentro = obtenerFila(); // Si no, generar aleatoriamente
+    filaCentro = obtenerFila(); // Caso contrário, gerar aleatoriamente
 }
 
-// Verificar si el usuario ganó
+// Verificar se o usuário ganhou
 const esGanador = filaCentro[0] === filaCentro[1] && filaCentro[1] === filaCentro[2];
 
-let resultadoMensaje = "😢 Has perdido... Inténtalo de nuevo dentro de 8 horas.";
+let resultadoMensaje = "😢 Você perdeu... Tente novamente dentro de 8 horas.";
 let premioTexto = "";
 
-// Si gana, recibe aleatoriamente Coins o EXP entre 5 y 10
+// Se ganhar, recebe aleatoriamente Coins ou EXP entre 5 e 10
 if (esGanador) {
-    const premioCantidad = Math.floor(Math.random() * 6) + 5; // Número aleatorio entre 5 y 10
-    const tipoPremio = Math.random() < 0.5 ? 'coins' : 'exp'; // 50% de probabilidad para cada tipo
+    const premioCantidad = Math.floor(Math.random() * 6) + 5; // Número aleatório entre 5 e 10
+    const tipoPremio = Math.random() < 0.5 ? 'coins' : 'exp'; // 50% de probabilidade para cada tipo
 
     if (tipoPremio === 'coins') {
-        await addkoin(sender, premioCantidad);
-        premioTexto = `🎉 Recibiste ${premioCantidad} Coins 🪙.`;
+        // await addkoin(sender, premioCantidad);
+        premioTexto = `🎉 Você recebeu ${premioCantidad} Coins 🪙.`;
     } else {
         await addXp(sender, premioCantidad);
-        premioTexto = `📚 Recibiste ${premioCantidad} de EXP.`;
+        premioTexto = `📚 Você recebeu ${premioCantidad} de EXP.`;
     }
 
-    resultadoMensaje = "🎉 ¡Has ganado! 🎉";
+    resultadoMensaje = "🎉 Você ganhou! 🎉";
 }
 
-// Construcción del mensaje de respuesta
+// Construction of response message
 const mensajeCasino = `
          *༻  𝙏𝙍𝘼𝙂𝘼𝙈𝙊𝙉𝙀𝘿𝘼𝙎 ༺*
             ┏━━━━┛🎰┗━━━━┓
@@ -1644,7 +1689,7 @@ ${resultadoMensaje}
 ${premioTexto}
 `;
 
-// Enviar el mensaje después de 3 segundos
+// Send message after 3 seconds
 setTimeout(() => {
     enviar(mensajeCasino);
 }, 3000);
@@ -1662,18 +1707,18 @@ const ahora = Date.now()
 const time = timeDayli(sender)
 const result = ahora - time
 const resultado = (0 - result) / 1000;
-return sock.sendMessage(from,{text : `Espere ${runtime(resultado)} para su nueva recompensa`},{quoted : info})
+return sock.sendMessage(from,{text : `Espere ${runtime(resultado)} para sua nova recompensa`},{quoted : info})
 } else {
 const time = 24* 60* 60* 1000
 await addDayli(sender,time)
 const montoExperiencia = 5
 const monto = 1
 enviar(`
-⏳🪙 𝐑𝐄𝐂𝐎𝐌𝐏𝐄𝐍𝐒𝐀 𝐃𝐈𝐀𝐑𝐈𝐀 🪙⏳
+⏳🪙 𝐑𝐄𝐂𝐎𝐌𝐏𝐄𝐍𝐒𝐀 𝐃𝐈Á𝐑𝐈𝐀 🪙⏳
 
-𝑮𝒂𝒏𝒂𝒔𝒕𝒆 ${monto} 𝑪𝒐𝒊𝒏𝒔 𝒚 ${montoExperiencia} 𝒅𝒆 𝑬𝒙𝒑𝒆𝒓𝒊𝒆𝒏𝒄𝒊𝒂.
+𝑮𝒂𝒏��� ${monto} 𝑪𝒐𝒊𝒏𝒔 � ${montoExperiencia} 𝒅𝒆 𝑬𝒙𝒑𝒆𝒓𝒊ê𝒏𝒄𝒊𝒂.
 `)
-await addkoin(sender,monto)
+// await addkoin(sender,monto)
 await addXp(sender,montoExperiencia)
 }
 break
@@ -1689,7 +1734,7 @@ case 'reg': case 'registrarme': case 'registrame': case 'rg':
         caption: `★━━━━★━━━━★★━━━━★
          *༻  𝐑𝐄𝐆𝐈𝐒𝐓𝐑𝐎  ༺*
 🎉𝑅𝑒𝑔𝑖𝑠𝑡𝑟𝑜 𝑐𝑜𝑚𝑝𝑙𝑒𝑡𝑎𝑑𝑜 *${nombre}* 🥳
-🪙𝑹𝒆𝒄𝒊𝒃𝒊𝒔𝒕𝒆 *₹50 Rupias* 🪙 𝒄𝒐𝒎𝒐 𝑹𝒆𝒈𝒂𝒍𝒐 𝒅𝒆 𝑩𝒊𝒆𝒏𝒗𝒆𝒏𝒊𝒅𝒂.
+🪙𝑹𝒆𝒄�𝒃𝒊� *₹50 Rupias* 🪙 𝒄𝒐𝒎𝒐 𝑹𝒆𝒈𝒂𝒍𝒐 𝒅𝒆 𝑩𝒊𝒆𝒏-𝒗�𝒏𝒅𝒂.
 ◆━━━━━━━▣✦▣━━━━━━━━◆`
     }, { quoted: info })
     break
@@ -1701,20 +1746,20 @@ const Rxxp = Rxp(sender)
 if(XpR >= Rxxp + 1000) {
 await addLevel(sender , 1)
 sleep(100)
-await addkoin(sender,10)
+// await addkoin(sender,10)
 sleep(100)
 await addXp(sender,100)
 sleep(100)
 await addRxp(sender,1000)
 const Mup = ` 
-        ★━━━ 𝐒𝐔𝐁𝐈𝐒𝐓𝐄 𝐃𝐄 𝐍𝐈𝐕𝐄𝐋 ━━━★
+        ★━━━ 𝐒𝐔𝐁𝐈�� 𝐃𝐄 𝐍Í𝐕𝐄𝐋 ━━━★
 ✪ @${sender.split('@')[0]}
-🎉 ¡𝑭𝒆𝒍𝒊𝒄𝒊𝒅𝒂𝒅𝒆𝒔 𝑯𝒂𝒛 𝒅𝒆𝒔𝒃𝒍𝒐𝒒𝒖𝒆𝒂𝒅𝒐 𝒖𝒏 𝒏𝒖𝒆𝒗𝒐 𝒓𝒂𝒏𝒈𝒐! 💪
+🎉 ¡𝑭𝒆𝒍𝒊𝒄𝒊𝒅𝒂𝒅𝒆𝒔 𝑯𝒂𝒛 𝒅𝒆𝒔𝒃𝒍𝒐𝒒𝒖𝒆𝒂𝒅𝒐 𝒖� 𝒏�𝒗𝒐 𝒓𝒂𝒏𝒈𝒐! 💪
 `
 sock.sendMessage(from,{text : Mup , mentions : [sender]},{quoted : info})
 } else {
 enviar(`
-❌ 𝑬𝒙𝒑𝒆𝒓𝒊𝒆𝒏𝒄𝒊𝒂 𝒊𝒏𝒔𝒖𝒇𝒊𝒄𝒊𝒆𝒏𝒕𝒆. ${pushname} 𝒅𝒆𝒃𝒆𝒓𝒂𝒔 𝒆𝒏𝒕𝒓𝒆𝒏𝒂𝒓 𝒎𝒂𝒔 𝒔𝒆𝒈𝒖𝒊𝒅𝒐. 
+❌ 𝑬𝒙𝒑𝒆𝒓𝒊ê𝒏𝒄𝒊𝒂 𝒊𝒏𝒔𝒖𝒇𝒊𝒄𝒊ê𝒏𝒕𝒆. ${pushname} 𝒅𝒆�𝒆 𝒆𝒏𝒕𝒓𝒂𝒓 𝒎𝒂𝒊𝒔 𝒔𝒆𝒈𝒖𝒊𝒅𝒐. 
 `)
 }
 }
@@ -1741,25 +1786,25 @@ const randomIndex = Math.floor(Math.random() * numbeR.length);
 const monto = numbeR[randomIndex];
 enviar(`
                ★━━━ 𝐌𝐈𝐍𝐀𝐍𝐃𝐎... ━━━★
-💰 Descubriste oro puro y obtuviste *₹${monto} Rupias* 
-💬 ❝ 🌟 𝑮𝒓𝒂𝒄𝒊𝒂𝒔 𝒂𝒍 𝑮𝒓𝒆𝒎𝒊𝒐 𝒅𝒆 𝑴𝒊𝒏𝒆𝒓𝒐𝒔 ⛏ 𝒔𝒆 𝒈𝒂𝒓𝒂𝒏𝒕𝒊𝒛𝒂 𝑺𝒖𝒆𝒍𝒅𝒐 𝑴𝒊𝒏𝒊𝒎𝒐 𝒅𝒆 *₹5 Rupias* 🪙.❞
+💰 Você descobriu ouro puro e obteve *₹${monto} Rupias* 
+💬 ❝ 🌟 𝑮𝒓𝒂ç𝒂𝒔 𝒂� 𝑮𝒓𝒆𝒎𝒊𝒐 𝒅𝒆 𝑴𝒊𝒏𝒆𝒓𝒐𝒔 ⛏ 𝒔𝒆 𝒈𝒂𝒓𝒂𝒏𝒕𝒊𝒛𝒂 𝑺𝒖𝒆𝒍𝒅𝒐 𝑴𝒊𝒏í𝒎𝒐 𝒅𝒆 *₹5 Rupias* 🪙.❞
 
-⏳ 𝑽𝒖𝒆𝒍𝒗𝒆 𝒆𝒏 24 𝒉𝒐𝒓𝒂𝒔.
+⏳ 𝑽�𝒍�𝒆 𝒆� 24 𝒉𝒐𝒓𝒂𝒔.
 `)
-await addkoin(sender,monto)
+// await addkoin(sender,monto)
 }
 }
 break 
 
 
     case "ruleta": {
-if (!q) return enviar(`Indique un monto para apostar, ejemplo .ruleta 4`);
+if (!q) return enviar(`Indique um valor para apostar, exemplo .ruleta 4`);
 if (!isReg) return enviar(respuesta.registro)
 const montto = q
 const monto = (montto * 1) / 1
-if (isNaN(monto)) return enviar(`Indique un monto válido en coins`);
-if (monto > MoneyOfSender(sender)) return enviar(`No tienes suficiente dinero`);
-if (monto > 5) return enviar('La apuesta no debe ser mayor a 5 Rupias');
+if (isNaN(monto)) return enviar(`Indique um valor válido em coins`);
+if (monto > MoneyOfSender(sender)) return enviar(`Você não tem dinheiro suficiente`);
+if (monto > 5) return enviar('A aposta não deve ser maior que 5 Rupias');
 const isMinxxx = checkRuleta(sender)
 if(isMinxxx) {
 const ahora = Date.now()
@@ -1770,31 +1815,31 @@ return enviar(`Espere... ${runtime(resultado)} `)
 } else {
 const time = 24* 60* 60* 1000
 await addRuleta(sender,time)
-const ppt = ["muere", "vive"]; // Posibilidades
+const ppt = ["muere", "vive"]; // Possibilities
 const pptb = ppt[Math.floor(Math.random() * ppt.length)];  // Elección aleatoria del sistema
 let vit;
 
-// Modo Duelo Letal
+// Lethal Duel Mode
 if (pptb === "muere") {
     vit = `💭「𝙍𝙖𝙯𝙚𝙧, 𝙚𝙡 𝙎𝙞𝙣 𝙈𝙞𝙚𝙙𝙤 🐺 𝙖𝙥𝙪𝙣𝙩𝙖 𝙖 𝙡𝙖 𝙘𝙖𝙗𝙚𝙯𝙖 𝙙𝙚 ${pushname} 😨🔫」
 💭「𝙍𝙖𝙯𝙚𝙧 🐺 𝙖𝙥𝙧𝙚𝙩𝙖 𝙚𝙡 𝙜𝙖𝙩𝙞𝙡𝙡𝙤... 💥 𝘽𝙊𝙊𝙈!」
-💭「${pushname} 𝙝𝙖 𝙘𝙖í𝙙𝙤 𝙮 𝙥𝙚𝙧𝙙𝙞ó ${monto} Rupias 🪙」`;
-    await delkoin(sender, monto);
-    // El jugador pierde
+💭「${pushname} 𝙝𝙖 𝙘𝙖í𝙙𝙤 � 𝙥𝙚𝙧𝙙�𝙪 ${monto} Rupias 🪙」`;
+    // await delkoin(sender, monto);
+    // The player loses
 } else if (pptb === "vive") {
     vit = `💭「𝙍𝙖𝙯𝙚𝙧, 𝙚𝙡 𝙎𝙞𝙣 𝙈𝙞𝙚𝙙𝙤 🐺 𝙖𝙥𝙪𝙣𝙩𝙖 𝙖 𝙡𝙖 𝙘𝙖𝙗𝙚𝙯𝙖 𝙙𝙚 ${pushname} 😨🔫」
 💭「𝙍𝙖𝙯𝙚𝙧 🐺 𝙖𝙥𝙧𝙚𝙩𝙖 𝙚𝙡 𝙜𝙖𝙩𝙞𝙡𝙡𝙤... 💥 𝘽𝙊𝙊𝙈!」
-💭「𝙀𝙨 𝙪𝙣𝙖 𝙗𝙧𝙤𝙢𝙖, ${pushname} 𝙨𝙤𝙗𝙧𝙚𝙫𝙞𝙫𝙚 𝙮 𝙜𝙖𝙣𝙖 ${monto} Rupias 🪙」`;
-    await addkoin(sender, monto);
-    // El jugador gana
+💭「𝙀𝙨 𝙪�𝙖 𝙗𝙧𝙤𝙢𝙖, ${pushname} 𝙨𝙤𝙗𝙧𝙚𝙫𝙞𝙫𝙚 � 𝙜𝙖𝙣𝙝𝙖 ${monto} Rupias 🪙」`;
+    // await addkoin(sender, monto);
+    // The player wins
 }
 
 const datatt = `
-╭━━━╾⭑✦  ✦⭑╼━━━╮
+╭━━━╾⭑✦.   ✦⭑╼━━━╮
          ⌬ 𝙍𝙐𝙇𝙀𝙏𝘼 𝙍𝙐𝙎𝘼 ⌬
 ${vit}
 ⌛ 𝙑𝙪𝙚𝙡𝙫𝙚 𝙚𝙣 24 𝙝𝙤𝙧𝙖𝙨...
-╰━━━╾⭑✦ ⬤ ✦⭑╼━━━╯
+╚━━━╾⭑✦ ❖ ✦⭑╼━━━╯
 `;
 
 
@@ -1807,7 +1852,7 @@ enviar(datatt);
 
 
 case "pescar": {
-if (q) return enviar(`no ponga ninguna palabra solo /pescar`);
+if (q) return enviar(`não coloque nenhuma palavra, apenas /pescar`);
 if (!isReg) return enviar(respuesta.registro)
 const isMinxxx = checkPescar(sender)
 if(isMinxxx) {
@@ -1819,32 +1864,32 @@ return enviar(`Espere... ${runtime(resultado)} `)
 } else {
 const time = 8 * 60 * 60 * 1000;
 await addPescar(sender,time)
-const ppt = ["delfin", "pulpo","pez","pez2","pez3","zapato"]; // Posibilidades
+const ppt = ["delfin", "pulpo","pez","pez2","pez3","zapato"]; // Possibilities
 const pptb = ppt[Math.floor(Math.random() * ppt.length)];  // Elección aleatoria del sistema
 let vit;
 
-// Cazador Marino
+// Marine Hunter
 if (pptb === "delfin") {
-    vit = `💭「𝙃𝙖𝙨 𝙖𝙩𝙧𝙖𝙥𝙖𝙙𝙤 𝙪𝙣 🦈 𝙮 𝙖𝙡 𝙫𝙚𝙣𝙙𝙚𝙧𝙡𝙤 𝙖 𝙆𝙖𝙞 🐯 𝙜𝙖𝙣𝙖𝙨 20 𝙙𝙚 𝙀𝙓𝙋 📚」`;
+    vit = `💭「𝙃𝙖𝙨 𝙖𝙩𝙧𝙖𝙥𝙖𝙙𝙤 𝙪𝙣 🦈 � 𝙖𝙡 𝙫𝙚𝙣𝙙𝙚𝙧𝙡𝙤 𝙖 𝙆𝙖𝙞 🐯 𝙜𝙖𝙣�� 20 𝙙𝙚 𝙀𝙓𝙋 📚」`;
     await addXp(sender, 20);
-    // El jugador gana
+    // The player wins
 } else if (pptb === "pulpo") {
-    vit = `💭「𝙃𝙖𝙨 𝙖𝙩𝙧𝙖𝙥𝙖𝙙𝙤 𝙪𝙣 🐙 𝙮 𝙖𝙡 𝙫𝙚𝙣𝙙𝙚𝙧𝙡𝙤 𝙖 𝙆𝙖𝙞 🐯 𝙧𝙚𝙘𝙞𝙗𝙚𝙨 8 𝙍𝙪𝙥𝙞𝙖𝙨 💎」`;
-    await addkoin(sender, 8);
+    vit = `💭「𝙃𝙖𝙨 𝙖𝙩𝙧𝙖𝙥𝙖𝙙𝙤 𝙪𝙣 🐙 � 𝙖𝙡 𝙫𝙚𝙣𝙙𝙚𝙧𝙡𝙤 𝙖 𝙆𝙖𝙞 🐯, 𝙧𝙚𝙘�𝙗𝙚 8 𝙍𝙪𝙥𝙞𝙖𝙨 💎」`;
+    // await addkoin(sender, 8);
 } else if (pptb === "pez") {
-    vit = `💭「𝙃𝙖𝙨 𝙖𝙩𝙧𝙖𝙥𝙖𝙙𝙤 𝙪𝙣 🐠 𝙮 𝙖𝙡 𝙫𝙚𝙣𝙙𝙚𝙧𝙡𝙤 𝙖 𝙆𝙖𝙞 🐯 𝙧𝙚𝙘𝙞𝙗𝙚𝙨 4 𝙍𝙪𝙥𝙞𝙖𝙨 💎 𝙮 5 𝙙𝙚 𝙀𝙓𝙋 📚」`;
-    await addkoin(sender, 4);
+    vit = `💭「𝙃𝙖𝙨 𝙖𝙩𝙧𝙖𝙥𝙖𝙙𝙤 𝙪𝙣 🐠 � 𝙖𝙡 𝙫𝙚𝙣𝙙𝙚𝙧𝙡𝙤 𝙖 𝙆𝙖𝙞 🐯 𝙧𝙚𝙘�𝙗𝙚 4 𝙍𝙪𝙥𝙞𝙖𝙨 💎 � 5 𝙙𝙚 𝙀𝙓𝙋 📚」`;
+    // await addkoin(sender, 4);
     await addXp(sender, 5);
 } else if (pptb === "pez2") {
-    vit = `💭「𝙃𝙖𝙨 𝙖𝙩𝙧𝙖𝙥𝙖𝙙𝙤 𝙪𝙣 🐟 𝙮 𝙖𝙡 𝙫𝙚𝙣𝙙𝙚𝙧𝙡𝙤 𝙖 𝙆𝙖𝙞 🐯 𝙧𝙚𝙘𝙞𝙗𝙚𝙨 3 𝙍𝙪𝙥𝙞𝙖𝙨 💎 𝙮 3 𝙙𝙚 𝙀𝙓𝙋 📚」`;
+    vit = `💭「𝙃𝙖𝙨 𝙖𝙩𝙧𝙖𝙥𝙖𝙙𝙤 𝙪𝙣 🐟 � 𝙖𝙡 𝙫𝙚𝙣𝙙𝙚𝙧𝙡𝙤 𝙖 𝙆𝙖𝙞 🐯 𝙧𝙚𝙘�𝙗𝙚 3 𝙍𝙪𝙥𝙞𝙖𝙨 💎 � 3 𝙙𝙚 𝙀𝙓𝙋 📚」`;
     await addkoin(sender, 3);
     await addXp(sender, 3);
 } else if (pptb === "pez3") {
-    vit = `💭「𝙃𝙖𝙨 𝙖𝙩𝙧𝙖𝙥𝙖𝙙𝙤 𝙪𝙣 🐡 𝙮 𝙖𝙡 𝙫𝙚𝙣𝙙𝙚𝙧𝙡𝙤 𝙖 𝙆𝙖𝙞 🐯 𝙧𝙚𝙘𝙞𝙗𝙚𝙨 1 𝙍𝙪𝙥𝙞𝙖 💎 𝙮 2 𝙙𝙚 𝙀𝙓𝙋 📚」`;
+    vit = `💭「𝙃𝙖𝙨 𝙖𝙩𝙧𝙖𝙥𝙖𝙙𝙤 𝙪𝙣 🐡 � 𝙖𝙡 𝙫𝙚𝙣𝙙𝙚𝙧𝙡𝙤 𝙖 𝙆𝙖𝙞 🐯 𝙧𝙚𝙘�𝙗𝙚 1 𝙍𝙪𝙥𝙞𝙖 💎 � 2 𝙙𝙚 𝙀𝙓𝙋 📚」`;
     await addkoin(sender, 1);
     await addXp(sender, 2);
 } else if (pptb === "zapato") {
-    vit = `💭「𝙃𝙖𝙨 𝙖𝙩𝙧𝙖𝙥𝙖𝙙𝙤 𝙪𝙣 🥾 𝙮 𝙖𝙡 𝙩𝙧𝙖𝙩𝙖𝙧 𝙙𝙚 𝙫𝙚𝙣𝙙𝙚𝙧𝙡𝙤 𝙖 𝙆𝙖𝙞 🐯, 𝙚́𝙡 𝙨𝙚 𝙧𝙞𝙚 🤣 𝙙𝙚 𝙩𝙞 🥲」`;
+    vit = `💭「𝙃𝙖𝙨 𝙖𝙩𝙧𝙖𝙥𝙖𝙙𝙤 𝙪𝙣 🥾 � 𝙖𝙡 𝙩𝙧𝙖𝙩𝙖𝙧 𝙙𝙚 𝙫𝙚𝙣𝙙𝙚𝙧𝙡𝙤 𝙖 𝙆𝙖𝙞 🐯, 𝙚́𝙡 𝙨𝙚 𝙧𝙞𝙚 🤣 𝙙𝙚 𝙩𝙞 🥲」`;
 }
 
 const datatt = `
@@ -1887,28 +1932,28 @@ case 'tradecoin':
 case 'tradecoins':
 case 'enviarcoins':
 case 'enviar': {
-  if (!isGroup) return enviar("⚠️ Este comando solo funciona en grupos.");
+  if (!isGroup) return enviar("⚠️ Este comando só funciona em grupos.");
 
   (async () => {
     try {
-      const mencionado = obtenerMencionado(info); // destinatario
-      const emisor = sender; // quien envía las monedas
+      const mencionado = obtenerMencionado(info); // recipient
+      const emisor = sender; // who sends the coins
       const monto = Number(args[1]);
 
-      if (!mencionado) return enviar("⚠️ Debes mencionar a alguien para enviarle monedas.\nEj: .regalar @usuario 100");
-      if (mencionado === emisor) return enviar("⚠️ No puedes enviarte monedas a ti mismo.");
-      if (isNaN(monto) || monto <= 0) return enviar("⚠️ Ingresa una cantidad válida de monedas.\nEj: .regalar @usuario 100");
+      if (!mencionado) return enviar("⚠️ Você deve mencionar alguém para enviar moedas.\nEx: .regalar @usuario 100");
+      if (mencionado === emisor) return enviar("⚠️ Você não pode enviar moedas para si mesmo.");
+      if (isNaN(monto) || monto <= 0) return enviar("⚠️ Insira uma quantidade válida de moedas.\nEx: .regalar @usuario 100");
 
       const saldoEmisor = await MoneyOfM(emisor);
-      if (saldoEmisor < monto) return enviar("❌ No tienes suficientes monedas para hacer esta transferencia.");
+      if (saldoEmisor < monto) return enviar("❌ Você não tem moedas suficientes para fazer esta transferência.");
 
-      // Realizar transferencia
-      await delkoin(emisor, monto);
-      await addkoin(mencionado, monto);
+      // Perform transfer
+      // await delkoin(emisor, monto);
+      // await addkoin(mencionado, monto);
       await sleep(100);
 
       const nuevoSaldo = await MoneyOfM(emisor);
-      enviar(`✅ Transferencia completada.\nUsted envió *₹${monto} Rupias.*`, {
+      enviar(`✅ Transferência concluída.\nVocê enviou *₹${monto} Rupias.*`, {
         mentions: [emisor, mencionado]
       });
     } catch (e) {
@@ -1930,8 +1975,8 @@ case 'rep' : case 'mirep' : case 'mireputacion':
 if(!isReg) return enviar(respuesta.registro)
 const myrep = repUser(sender)
 const mitulamide30milimetros = `
-╭━━━╾⭑✦REPUTACIÓN✦⭑╼━━━╮
-𝑳𝒂 𝑹𝒆𝒑𝒖𝒕𝒂𝒄𝒊𝒐𝒏 𝒅𝒆 ${pushname} 𝒆𝒔 𝒅𝒆 ${myrep}.
+╭━━━╾⭑✦REPUTAÇÃO✦⭑╼━━━╮
+𝑳𝒂 𝑹𝒆𝒑𝒖𝒕𝒂çã 𝒅𝒆 ${pushname} 𝒆́ 𝒅𝒆 ${myrep}.
 `
 if (myrep < 20) {
     await sock.sendMessage(from, {
@@ -1968,10 +2013,10 @@ if(!isGroupAdmins) return enviar(respuesta.admin)
 let teks2 = `
 ▭▬ ۞ ▬▛ ༼⁠ᘛ 𝑳𝒖𝒏𝒂-𝑩𝒐𝒕 ᘚ༽ ▜▬ ۞ ▬▭
 *༻❦ 𝐑𝐀𝐍𝐊𝐈𝐍𝐆 𝐃𝐄 𝐑𝐄𝐏𝐔𝐓𝐀𝐂𝐈𝐎𝐍 ❦༺\n`;
-registro.sort((a, b) => b.rep - a.rep) // Ordena de mayor a menor
-       .slice(0, 10) // Toma solo los 10 primeros
+registro.sort((a, b) => b.rep - a.rep) // Sort from highest to lowest
+       .slice(0, 10) // Take only the first 10
        .forEach((usuario, indice) => {
-           teks2 += `• 🚩Numero ${indice + 1}: *${usuario.nombre}* | *${usuario.rep}* de Reputación\n`;
+           teks2 += `• 🚩Numero ${indice + 1}: *${usuario.nombre}* | *${usuario.rep}* de Reputação\n`;
        });
 enviar(teks2)
 break 
@@ -1981,12 +2026,12 @@ case 'rankcoins': {
   if(!isGroupAdmins) return enviar(respuesta.admin)
   const pathi = './settings/Grupo/Json/registros.json';
 
-  // Leer los datos actualizados en el momento
+  // Read updated data at the moment
   const registro = JSON.parse(fs.readFileSync(pathi, 'utf8'));
 
-  let rankingMensaje = `*🏆 RANKING DE MILLONARIOS*\n\nTOP.  USUARIO.   RUPIAS\n\n`;
+  let rankingMensaje = `*🏆 RANKING DE MILIONÁRIOS*\n\nTOP.  USUÁRIO.   RUPIAS\n\n`;
 
-  // Convertir a array si registro es un objeto
+  // Convert to array if registro is an object
   const rankingArray = Array.isArray(registro)
     ? registro
     : Object.entries(registro).map(([jid, data]) => ({
@@ -2012,8 +2057,8 @@ case 'ranknivel':{
 if(!isGroup) return 
 if(!isGroupAdmins) return enviar(respuesta.admin)
 let teks = `
-*RANKING DE NIVEL* :
-TOP.   USUARIO.   NIVEL\n`
+*RANKING DE NÍVEL* :
+TOP.   USUÁRIO.   NÍVEL\n`
 registro.sort((a,b) => b.nivel - a.nivel).forEach((usuario,index) => {
 teks +=`• ${index + 1 }.     *${usuario.nombre}*  ➫  _*${usuario.nivel}*_\n`
 });
@@ -2025,18 +2070,18 @@ case "tienda":
 
 if (!q) return enviar(`
 ✦━───༺༻───━✦
-🎀❖ 𝓣𝓘𝓔𝓝𝓓𝓐 ❖🎀
+🎀❖ ��� ❖🎀
 
-🐾💬 "𝓑𝓲𝓮𝓷𝓿𝓮𝓷𝓲𝓭𝓸 𝓪 𝓵𝓪 𝓽𝓲𝓮𝓷𝓭𝓪 🌙"
+🐾💬 "𝓑�-𝓿�𝓷𝓸 𝓪 𝓵𝓪 ��� 🌙"
 ━━━━━━━━━━━━━━━
 🍀 𝘼𝙧𝙩𝙞𝙘𝙪𝙡𝙤 1️⃣:
 👉 *.tienda 1* 👈
 🏷️ 50 𝓒𝓸𝓲𝓷𝓼 🪙 🔁 200 𝓔𝓧𝓟 📚
 
 🌟 𝘼𝙧𝙩𝙞𝙘𝙪𝙡𝙤 2️⃣:
-👉 *.tienda 2* 5 Los dragones 👈
+👉 *.tienda 2* 5 Os dragões 👈
 🏷️ 50 𝓒𝓸𝓲𝓷𝓼 🪙 🔁 𝓒𝓪𝓶𝓫𝓲𝓪 𝓷𝓸𝓶𝓫𝓻𝓮 𝓭𝓮 𝓻𝓪𝓷𝓰𝓸𝓼
-( .𝓽𝓲𝓮𝓷𝓭𝓪 2 + 𝓷𝓲𝓿𝓮𝓵 𝓭𝓮 𝓻𝓪𝓷𝓰𝓸 + 𝓷𝓸𝓶𝓫𝓻𝓮𝓝𝓾𝓮𝓿𝓸 )
+( .𝓽𝓲𝓮𝓷𝓭𝓪 2 + 𝓷í𝓮𝓵 𝓭𝓮 𝓻𝓪𝓷𝓰𝓸 + 𝓷𝓸𝓶𝓫𝓻𝓮𝓝𝓾𝓮𝓿� )
 
 💎 𝘼𝙧𝙩𝙞𝙘𝙪𝙡𝙤 3️⃣:
 👉 *.emojimix 😇+😈* 👈
@@ -2044,18 +2089,17 @@ if (!q) return enviar(`
 
 🎨 𝘼𝙧𝙩𝙞𝙘𝙪𝙡𝙤 4️⃣:
 👉 *.sticker* 👈
-🏷️ 1 𝓒𝓸𝓲𝓷 🪙 🔁 𝓒𝓻𝓮𝓪 𝓼𝓽𝓲𝓬𝓴𝓮𝓻𝓼 𝓬𝓸𝓷 𝓯𝓸𝓽𝓸𝓼 𝓸 𝓖𝓘𝓕𝓼.
+🏷️ 1 𝓒𝓸𝓲𝓷 🪙 🔁 𝓒𝓻𝓮𝓪 𝓼𝓽𝓲𝓬𝓴𝓮𝓻𝓼 𝓬𝓸� 𝓯𝓸𝓽𝓸𝓼 𝓸 𝓖𝓘𝓕�.
 
 ✦━───༺༻───━✦
 `);
 
 
 if (q.startsWith("1")) {
-    if (coins < 50) return enviar("❌ No tienes suficientes Reales para hacer esta compra. Necesitas al menos 50 Rupias.");
-    await delkoin(sender, 50);
+    // await delkoin(sender, 50)
     await addXp(sender, 200);
 
-    return enviar(`🐱💬 Gracias ${pushname}, cambiaste 50 Rupias por 200 EXP.`);
+    return enviar(`🐱💬 Obrigado ${pushname}, você trocou 50 Rupias por 200 EXP.`);
 }
 
 if (q.startsWith("2")) {
@@ -2064,11 +2108,11 @@ if (q.startsWith("2")) {
     const nuevoNombre = args.slice(2).join(" ");
 
     if (isNaN(nivel) || !nuevoNombre) {
-        return enviar("❌ Usa el comando correctamente: .tienda 2 <nivel> <nuevo nombre>\nEjemplo: .tienda 2 8 Los Poderosos");
+        return enviar("❌ Use o comando corretamente: .tienda 2 <nível> <novo nome>\nExemplo: .tienda 2 8 Os Poderosos");
     }
 
-    if (coins < 50) {
-        return enviar("❌ No tienes suficientes Coins para cambiar el nombre del rango. Necesitas 50 Coins.");
+    if (false) {
+        return enviar("❌ Você não tem Coins suficientes para mudar o nome do rank. Você precisa de 50 Coins.");
     }
 
     const path = './settings/rangos.json';
@@ -2077,540 +2121,40 @@ if (q.startsWith("2")) {
     try {
         rangosData = JSON.parse(fs.readFileSync(path));
     } catch (e) {
-        return enviar("⚠️ Error al leer los rangos. Asegúrate de que el archivo exista y esté bien formado.");
+        return enviar("⚠️ Erro ao ler os ranks. Certifique-se de que o arquivo exista e esteja bem formatado.");
     }
 
     rangosData[nivel] = nuevoNombre;
 
     try {
         fs.writeFileSync(path, JSON.stringify(rangosData, null, 2));
-        await delkoin(sender, 50);
+        // await delkoin(sender, 50)
 
-        return enviar(`✅ ¡Perfecto, ${pushname}!\nHas cambiado el rango del nivel *${nivel}* a:\n✨ *${nuevoNombre}* ✨\nY se descontaron 50 Rupias 🪙`);
+        return enviar(`✅ ¡Perfeito, ${pushname}!\nVocê mudou o rank do nível *${nivel}* para:\n✨ *${nuevoNombre}* ✨\nE 50 Rupias foram descontadas 🪙`);
     } catch (e) {
-        return enviar("⚠️ No se pudo guardar el nuevo nombre. Intenta de nuevo.");
+        return enviar("⚠️ Não foi possível salvar o novo nome. Tente novamente.");
     }
 }
 
 break;
 
-//DESCARGAS
+//DOWNLOADS
 
 
-//nesecitas api
+//você precisa de api
 
 case 'playvideo':
-case 'ytmp4': {
-if(!isReg) return enviar(respuesta.registro)
-  if (!q)
-    return enviar('❌ Escribe un nombre o link de YouTube');
-  try {
 
 
 
-    // Endpoint info del video
-    const apiURL =
-      `${APINAUFRA}/ytinfo?apikey=${NAUFRA_KEY}&url=${encodeURIComponent(q.trim())}`;
 
-    const apiData = await fetchJson(apiURL);
 
-    // SI YTINFO FUNCIONA
-    if (apiData && apiData.Estado === "online") {
 
-      const data = apiData.Resultado;
 
-      await sock.sendMessage(from, {
-        image: { url: data.Miniatura },
-        caption: `「✪」 *${data.Titulo}*\n\n*ⴵ Duración:* ${data.Duracion}\n*✐ Canal:* ${data.Canal.Nombre}\n*👁 Vistas:* ${data.Visualizaciones}\n*🜸 Link:* ${data.EnlaceYoutube}`
-      }, { quoted: info });
-
-      await sock.sendMessage(from, {
-        video: { url: `${data.EnlaceDescarga}&apikey=${NAUFRA_KEY}` }, // 🔑 Agregar key también aquí
-        mimetype: 'video/mp4',
-        caption: data.Titulo
-      }, { quoted: info });
-
-      return;
-    }
-
-    // SI YTINFO FALLA → DESCARGA IGUAL
-    const videoURL =
-      `${APINAUFRA}/ytmp4?apikey=${NAUFRA_KEY}&url=${encodeURIComponent(q.trim())}`;
-
-    await sock.sendMessage(from, {
-      video: { url: videoURL },
-      mimetype: 'video/mp4',
-      caption: q
-    }, { quoted: info });
-
-  } catch (e) {
-
-    console.log("ERROR PLAYVIDEO:", e);
-
-    enviar('❌ Error descargando video');
-
-  }
-
-}
-break;
-
-case 'playdoc': {
-if(!isReg) return enviar(respuesta.registro)
-if (!q)
-return enviar('❌ Escribe un nombre o link de YouTube');
-
-
-
-try {
-
-const apiURL =
-`${APINAUFRA}/ytinfo?apikey=${NAUFRA_KEY}&url=${encodeURIComponent(q.trim())}`;
-
-const apiData = await fetchJson(apiURL);
-
-// SI YTINFO FUNCIONA
-if (apiData && apiData.Estado === "online") {
-
-const data = apiData.Resultado;
-
-await sock.sendMessage(from, {
-image: { url: data.Miniatura },
-caption: `「✪」 *${data.Titulo}*
-
-*ⴵ Duración:* ${data.Duracion}
-*✐ Canal:* ${data.Canal.Nombre}
-*👁 Vistas:* ${data.Visualizaciones}
-*🜸 Link:* ${data.EnlaceYoutube}
-`
-}, { quoted: info });
-
-
-await sock.sendMessage(from, {
-document: { url: `${data.EnlaceDescarga}&apikey=${NAUFRA_KEY}` },
-mimetype: 'video/mp4',
-fileName: `${data.Titulo}.mp4`
-}, { quoted: info });
-
-return;
-}
-
-
-// SI YTINFO FALLA → DESCARGA IGUAL
-const videoURL =
-`${APINAUFRA}/ytmp4?apikey=${NAUFRA_KEY}&url=${encodeURIComponent(q.trim())}`;
-
-await sock.sendMessage(from, {
-document: { url: videoURL },
-mimetype: 'video/mp4',
-fileName: `video.mp4`
-}, { quoted: info });
-
-} catch (e) {
-
-console.log("ERROR MP4DOC:", e);
-
-enviar('❌ Error enviando documento');
-
-}
-
-}
-break;
-
-case 'play': {
-if(!isReg) return enviar(respuesta.registro)
-if (!q) return enviar('❌ Escribe un nombre o link de YouTube')
-
-try {
-
-let query = encodeURIComponent(q.trim())
-
-// INFO DEL VIDEO
-let apiURL = `${APINAUFRA}/ytinfo?apikey=${NAUFRA_KEY}&url=${query}`
-
-let apiData = await fetchJson(apiURL)
-
-// SI LA API RESPONDE BIEN
-if (apiData && apiData.Estado === "online" && apiData.Resultado) {
-
-let data = apiData.Resultado
-
-await sock.sendMessage(from, {
-image: { url: data.Miniatura },
-caption: `「✪」 *${data.Titulo}*
-
-*ⴵ Duración:* ${data.Duracion}
-*✐ Canal:* ${data.Canal.Nombre}
-*👁 Vistas:* ${data.Visualizaciones}
-*🜸 Link:* ${data.EnlaceYoutube}
-
-*📥 Descargando audio...*`
-}, { quoted: info })
-
-// AUDIO
-await sock.sendMessage(from, {
-audio: {
-url: `${APINAUFRA}/ytmp3?apikey=${NAUFRA_KEY}&url=${encodeURIComponent(data.EnlaceYoutube)}`
-},
-mimetype: 'audio/mpeg',
-ptt: false
-}, { quoted: info })
-
-return
-
-}
-
-
-// SI FALLA YTINFO → DESCARGA DIRECTO
-let audioURL = `${APINAUFRA}/ytmp3?apikey=${NAUFRA_KEY}&url=${query}`
-
-await sock.sendMessage(from, {
-audio: { url: audioURL },
-mimetype: 'audio/mpeg',
-ptt: false
-}, { quoted: info })
-
-
-} catch (e) {
-
-console.log("ERROR PLAY:", e)
-
-enviar('❌ Error descargando música')
-
-}
-
-}
-break
-
-
-
-
-
-case 'fb':
-case 'facebook': {
-if(!isReg) return enviar(respuesta.registro)
-    if (!q)
-        return enviar('❌ Escribe un link de Facebook');
-
-    
-
-    try {
-
-      
-        // URL de descarga directa (no JSON)
-        const videoURL = `${APINAUFRA}/fbvideo?apikey=${NAUFRA_KEY}&url=${encodeURIComponent(q.trim())}`;
-
-        // Enviar video directamente al bot
-        await sock.sendMessage(from, {
-            video: { url: videoURL },
-            mimetype: 'video/mp4',
-            caption: `*🎬 Video de Facebook*\n${q}`
-        }, { quoted: info });
-
-    } catch (e) {
-        console.log("ERROR FBVIDEO:", e);
-        enviar('❌ Error descargando video de Facebook');
-    }
-
-}
-break;
-
-
-case 'tiktok': {
-if(!isReg) return enviar(respuesta.registro)
-    if (!q)
-        return enviar('❌ Escribe un link de TikTok');
-
-    try {
-
-        // API key del usuario (puedes sacarla de tu DB si quieres dinámico)
-        
-        // Endpoint directo de descarga TikTok
-        const videoURL = `${APINAUFRA}/tiktok?apikey=${NAUFRA_KEY}&url=${encodeURIComponent(q.trim())}`;
-
-        // Opcional: miniatura y título con un endpoint /ttinfo
-        // Por simplicidad aquí solo enviamos el video directamente
-        await sock.sendMessage(from, {
-            video: { url: videoURL },
-            mimetype: 'video/mp4',
-            caption: `*🎬 Video de TikTok*\n${q}`
-        }, { quoted: info });
-
-    } catch (e) {
-        console.log("ERROR TIKTOK:", e);
-        enviar('❌ Error descargando video de TikTok');
-    }
-
-}
-break;
-
-
-case 'mediafire': {
-if(!isReg) return enviar(respuesta.registro)
-    if (!q) return enviar('❌ Envia un link de MediaFire');
-
-    enviar("📥 Descargando archivo...");
-
-    try {
-
-        const axios = require("axios");
-
-        const apiURL = `${APINAUFRA}/mediafire-dl?apikey=${NAUFRA_KEY}&url=${encodeURIComponent(q)}&t=${Date.now()}`;
-
-        const response = await axios.get(apiURL, {
-            responseType: 'arraybuffer'
-        });
-
-        // Obtener nombre desde header
-        let fileName = "archivo";
-
-        const disposition = response.headers['content-disposition'];
-
-        if (disposition && disposition.includes("filename=")) {
-            fileName = disposition
-                .split("filename=")[1]
-                .replace(/"/g, "")
-                .trim();
-        }
-
-        const mimeType = response.headers['content-type'] || 'application/octet-stream';
-
-        await sock.sendMessage(from, {
-            document: Buffer.from(response.data),
-            mimetype: mimeType,
-            fileName: fileName
-        }, { quoted: info });
-
-    } catch (e) {
-        console.log(e);
-        enviar('❌ Error descargando archivo');
-    }
-
-}
-break;
-
-case 'instagram': {
-if(!isReg) return enviar(respuesta.registro)
-    if (!q)
-        return enviar('❌ Escribe un link de Instagram');
-
-    try {
-        // Endpoint directo de descarga Instagram
-        const videoURL = `${APINAUFRA}/instagram?apikey=${NAUFRA_KEY}&url=${encodeURIComponent(q.trim())}`;
-
-        // Enviar video directamente al bot
-        await sock.sendMessage(from, {
-            video: { url: videoURL },
-            mimetype: 'video/mp4',
-            caption: `*🎬 Video de Instagram*\n${q}`
-        }, { quoted: info });
-
-    } catch (e) {
-        console.log("ERROR INSTAGRAM:", e);
-        enviar('❌ Error descargando video de Instagram');
-    }
-
-}
-break;
-
-
-//nesecitas api
-case 'pinterest':
-case 'pin': {
-if(!isReg) return enviar(respuesta.registro)
-  if (!q)
-    return enviar('❌ Escribe qué quieres buscar');
-
-  try {
-
-    const apiURL =
-      `${APINAUFRA}/pinterest-search?apikey=${NAUFRA_KEY}&q=${encodeURIComponent(q)}&t=${Date.now()}`;
-
-    await sock.sendMessage(from, {
-      image: { url: apiURL },
-      caption: `*📌 Resultado para:* ${q}`
-    }, { quoted: info });
-
-  } catch (e) {
-
-    console.log("ERROR PINTEREST:", e);
-    enviar('❌ Error buscando la imagen');
-
-  }
-
-}
-break;
-
-case 'horoscopo':
-case 'horóscopo': {
-
-  if (!q) return enviar('❌ Escribe tu signo zodiacal.\nEjemplo: .horoscopo aries');
-
-  const signo = q.toLowerCase().trim();
-
-  enviar("🔮 Consultando tu horóscopo del día...");
-
-  try {
-    
-
-    const apiURL = `${APINAUFRA}/horoscopo?apikey=${NAUFRA_KEY}&signo=${encodeURIComponent(signo)}&t=${Date.now()}`;
-
-    const data = await fetchJson(apiURL);
-
-    const mensaje = 
-`🔮 *Horóscopo de ${data.signo.toUpperCase()}*
-📅 ${data.fecha}
-
-${data.descripcion}
-
-✨ ¡Que tengas un excelente día!`;
-
-    await sock.sendMessage(from, { text: mensaje }, { quoted: info });
-
-  } catch (e) {
-    console.log("ERROR HOROSCOPO:", e);
-    enviar('❌ No pude obtener el horóscopo. Verifica el signo.');
-  }
-
-}
-break;
-  
-  
-case 'wikipedia':
-case 'wiki': {
-if(!isReg) return enviar(respuesta.registro)
-  if (!q) return enviar('❌ Escribe qué quieres buscar');
+//você precisa de api
 
   
-  try {
-    
-    // En la misma VPS
-    const apiURL = `${APINAUFRA}/wikipedia?apikey=${NAUFRA_KEY}&q=${encodeURIComponent(q)}&t=${Date.now()}`;
-
-    const data = await fetchJson(apiURL);
-
-    const mensaje = `📚 *${data.titulo}*\n${data.descripcion}\n🔗 ${data.enlace}`;
-await sock.sendMessage(from, { text: mensaje }, { quoted: info });
-
-  } catch (e) {
-    console.log("ERROR WIKI:", e);
-    enviar('❌ Error buscando en Wikipedia');
-  }
-
-}
-break;
-
-
-case 'google':
-case 'g': {
-if(!isReg) return enviar(respuesta.registro)
-  if (!q) return enviar('❌ Escribe qué quieres buscar en Google');
-
-  
-  try {
-    
-    const apiURL = `${APINAUFRA}/google?apikey=${NAUFRA_KEY}&q=${encodeURIComponent(q)}&t=${Date.now()}`;
-
-    const data = await fetchJson(apiURL);
-
-    const mensaje = `🌐 *${data.titulo}*\n${data.descripcion}\n🔗 ${data.enlace}`;
-
-    await sock.sendMessage(from, {
-      text: mensaje
-    }, { quoted: info });
-
-  } catch (e) {
-    console.log("ERROR GOOGLE:", e);
-    enviar('❌ Error buscando en Google');
-  }
-}
-break;
-
-case 'simi': {
-if(!isReg) return enviar(respuesta.registro)
-try {
-
-  if (!q) return enviar('💬 Usa: /simi texto');
-
-
-  
-
-  const personalidad = encodeURIComponent(
-    "Responde en español como un bot sarcástico, con respuestas largas, un poco agresivo con malas palabras, sexualizado y divertido. Sé corto y con carácter. Usando muchas palabras sexuales y algo agresivas."
-  );
-
-  const texto = encodeURIComponent(q);
-
-  const apiURL = `${APINAUFRA}/chat?apikey=${NAUFRA_KEY}&prompt=${personalidad}%20Pregunta:%20${texto}&t=${Date.now()}`;
-
-  const data = await fetchJson(apiURL);
-
-  if (!data || !data.respuesta) {
-    return enviar('❌ Simi no respondió.');
-  }
-
-  const msg = `
-'💬 ${data.respuesta}
-`.trim();
-
-  enviar(msg);
-
-} catch (e) {
-  console.log(e);
-  enviar('❌ Error con Simi.');
-}
-}
-break;
-
-
-
-case 'descargarapk':
-case 'apk': {
-if(!isReg) return enviar(respuesta.registro)
-  if (!q)
-    return enviar('❌ Escribe el nombre de la aplicación\nEjemplo: .apk whatsapp');
-
-  try {
-
-    // 🔎 1️⃣ Buscar app
-    const searchURL =
-      `${APINAUFRA}/aptoide-search?apikey=${NAUFRA_KEY}&q=${encodeURIComponent(q)}&t=${Date.now()}`;
-
-    const search = await fetchJson(searchURL);
-
-    if (!search.resultado || search.resultado.length === 0)
-      return enviar('❌ No se encontró la aplicación');
-
-    const app = search.resultado[0];
-
-    enviar(`*⇓ Descargando:* ${app.nombre}\n⏳ Espera un momento...`);
-
-    // ⬇ 2️⃣ Descargar usando el package
-    const downloadURL =
-      `${APINAUFRA}/aptoide-download?apikey=${NAUFRA_KEY}&package=${app.paquete}&t=${Date.now()}`;
-
-    await sock.sendMessage(from, {
-      document: { url: downloadURL },
-      mimetype: "application/vnd.android.package-archive",
-      fileName: `${app.nombre}.apk`,
-      caption:
-`📦 *${app.nombre}*
-*✰ Rating:* ${app.rating}
-*⇓ Descargas:* ${app.descargas}
-*❒ Tamaño:* ${app.tamaño}
-*❂ Versión:* ${app.version}`
-    }, { quoted: info });
-
-  } catch (e) {
-
-    console.log("ERROR APK PRO:", e);
-    enviar('❌ Error descargando la aplicación');
-
-  }
-
-}
-break;
-
-//Parejas
+//Couples
 
 
 case 'alea': case 'casar' : case 'parejas':{
@@ -2619,7 +2163,7 @@ const men1 = groupMembers[Math.floor(Math.random() * groupMetadata.participants.
 const men3 = groupMembers[Math.floor(Math.random() * groupMetadata.participants.length)]
 const men2 = men1.id
 const men4 = men3.id
-const rmen = `𝙰 @${men4.split('@')[0]} 𝙻𝙴 𝙶𝚄𝚂𝚃𝙰 @${men2.split('@')[0]} 𝚈 𝙳𝙴𝙱𝙴𝚁𝙸𝙰𝙽 𝙲𝙰𝚂𝙰𝚁𝚂𝙴`
+const rmen = `𝙰 @${men4.split('@')[0]} 𝙻𝙴 �𝚄𝚂𝚃𝙰 @${men2.split('@')[0]} � �����𝙸�� �����`
 sock.sendMessage(from,{text : rmen , mentions :[men4,men2]},{quoted : info})
 }
 break 
@@ -2627,54 +2171,73 @@ break
 
 
 
-
-// COMANDOS SIN PREFIJO
+// COMMANDS WITHOUT PREFIX
 default:
+// React with emoji for non-existent commands
+if (body && body.startsWith(prefixo[0])) {
+  try {
+    await sock.sendMessage(from, { react: { text: "❓", key: info.key } });
+  } catch (e) {
+    console.log("Erro ao reagir:", e);
+  }
+}
 
-
-/// 🚫 ANTILINK MEJORADO CON DEPURACIÓN Y COMPATIBILIDAD LID/JID
+/// 🚫 IMPROVED ANTILINK WITH DEBUGGING AND LID/JID COMPATIBILITY
 
 const { jidNormalizedUser } = require("baileys")
 const texto = (budy || "").toLowerCase()
 
 if (isGroup && isAntiLink && !isGroupAdmins && !isOwner) {
   if (texto.includes(".com") || texto.includes("http://") || texto.includes("https://")) {
-    console.log("⚠️ Enlace detectado:", texto)
+    console.log(chalk.yellowBright("⚠️ Link detectado:"), texto)
 
     const groupMetadata = await sock.groupMetadata(from)
     const botIsAdmin = groupMetadata.participants.find(p => p.id === owner && p.admin)
-    if (!isBotGroupAdmins) return enviar("⚠️ No soy administrador, no puedo expulsar.")
+    if (!isBotGroupAdmins) return enviar("⚠️ Não sou administrador, não posso expulsar.")
 
     const member = groupMetadata.participants.find(p => p.id === sender)
-    if (!member) return console.log("⚠️ El usuario ya no está en el grupo.")
+    if (!member) return console.log(chalk.yellowBright("⚠️ O usuário já não está no grupo."))
 
     const Kick = jidNormalizedUser(sender)
-    console.log("👞 Intentando expulsar a:", Kick)
+    console.log(chalk.cyanBright("👞 Tentando expulsar:"), Kick)
 
     try {
-      console.log("🗑️ Eliminando mensaje...")
+      console.log(chalk.yellow("🗑️ Excluindo mensagem..."))
       await sock.sendMessage(from, { 
         delete: { remoteJid: from, fromMe: false, id: info.key.id, participant: sender } 
       })
 
-      console.log("🚷 Expulsando usuario...")
+      console.log(chalk.yellow("🚷 Expulsando usuário..."))
       const result = await sock.groupParticipantsUpdate(from, [Kick], "remove")
-      console.log("✅ Resultado expulsión:", result)
+      console.log(chalk.greenBright("✅ Resultado expulsão:"), result)
 
-      await enviar(`🚫 Se detectó un link prohibido, el usuario @${sender.split("@")[0]} fue eliminado`, { mentions: [sender] })
+      await enviar(`⚠️ Foi detectado um link proibido, o usuário @${sender.split("@")[0]} foi eliminado`, { mentions: [sender] })
 
     } catch (err) {
-      console.log("❌ Error al ejecutar antilink:")
-      console.log("Mensaje:", err.message)
-      console.log("Stack completo:", err)
-      await enviar(`⚠️ No se pudo expulsar a @${sender.split("@")[0]}.\nMotivo: ${err.message}`, { mentions: [sender] })
+      console.log(chalk.redBright("❌ Erro ao executar antilink:"))
+      console.log(chalk.yellow("Mensagem:"), err.message)
+      console.log(chalk.red("Stack completo:"), err)
+      await enviar(`⚠️ Não foi possível expulsar @${sender.split("@")[0]}\nMotivo: ${err.message}`, { mentions: [sender] })
     }
   }
 }
 
+//Funções Atalias - Auto detect figurinhas
+if (isGroup && budy.toLowerCase().includes('figurinha') && !budy.toLowerCase().startsWith('!')) {
+  (async () => {
+    try {
+      const totalFigurinhas = 5532;
+      const num = Math.floor(Math.random() * totalFigurinhas);
+      const repoIndex = Math.floor(num / 1000) + 1;
+      const url = `https://raw.githubusercontent.com/AtaliasOliveira1/stickers-${repoIndex}/main/fig%20(${num}).webp`;
 
+      await sock.sendMessage(from, { sticker: { url } });
+    } catch (error) {
+      console.log(error);
+    }
+  })();
+}
 
-    
    if (budy.startsWith('=>Duueño')) {
     if (!isOwner) return enviar(respuesta.miowner)
         function Return(sul) {
@@ -2721,7 +2284,7 @@ console.log('Error : %s', color(e, 'red'))
 startProo()
 fs.watchFile('./index.js', (curr, prev) => {
 if (curr.mtime.getTime() !== prev.mtime.getTime()) {
-console.log(color('  [❗] El archivo Index fue modificada',"blue"));
+console.log(color('  [❗] O arquivo index.js foi modificado. Reiniciando!',"blue"));
 process.exit()
 }
 })

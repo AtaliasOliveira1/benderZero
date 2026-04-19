@@ -5,16 +5,16 @@ const JsonCasino =  './Games/Json/casino.json';
 const JsonPescar =  './Games/Json/pescar.json';
 const GameCasino = JSON.parse(fs.readFileSync(JsonCasino))
 const GamePescar = JSON.parse(fs.readFileSync(JsonPescar))
-//dayli
+//daily
 
-//tragacoins
+//slotcoins
 const JsonTraga = './Games/Json/tragaperras.json';
 const GameTraga = JSON.parse(fs.readFileSync(JsonTraga));
 
 const JsonDayli =  './Games/Json/dayli.json';
 const GameDayli = JSON.parse(fs.readFileSync(JsonDayli))
 
-// ruleta
+// roulette
 const JsonRuleta =  './Games/Json/ruleta.json';
 const GameRuleta = JSON.parse(fs.readFileSync(JsonRuleta))
 
@@ -30,7 +30,7 @@ const GameEmoji = JSON.parse(fs.readFileSync(JsonEmoji))
 const JsonAttp =  './Games/Json/attp.json';
 const GameAttp = JSON.parse(fs.readFileSync(JsonAttp))
 
-// dayli
+// daily
 
 const addDayli = (sender , time) => {
 const obj = {
@@ -52,7 +52,7 @@ time : Date.now() + time
 GameMinar.push(obj)
 fs.writeFileSync(JsonMining , JSON.stringify(GameMinar, null , 2)+'\n')
 }
-// Ruleta
+// Roulette
 const addRuleta = (sender , time) => {
 const obj = {
 user : sender,
@@ -104,7 +104,7 @@ fs.writeFileSync(JsonCasino , JSON.stringify(GameCasino, null , 2)+'\n')
 
 
 const addPescar = (sender , time) => {
-  if (!sender || typeof time !== 'number') return; // Validación básica
+  if (!sender || typeof time !== 'number') return; // Validação básica
   const obj = {
     user: sender,
     time: Date.now() + time
@@ -128,8 +128,8 @@ const checkRuleta = (sender) => {
 return GameRuleta.some(i => i.user === sender)
 }
 
-//tragacois
-// ✅ Agregar tiempo de espera
+//slotcoins
+// ✅ Add wait time
 const addClaimTraga = (sender, time) => {
     const index = GameTraga.findIndex(i => i.user === sender);
     const nuevoTiempo = Date.now() + time;
@@ -144,15 +144,15 @@ const addClaimTraga = (sender, time) => {
 };
 
 
-// ✅ Verificar si ya reclamó
+// ✅ Verificar se já foi reivindicado
 const checkClaimTraga = (sender) => {
     const user = GameTraga.find(i => i.user === sender);
     if (!user) return false;
-    return user.time > Date.now(); // solo si todavía está dentro del tiempo de espera
+    return user.time > Date.now(); // apenas se ainda estiver dentro do tempo de espera
 };
 
 
-// ✅ Obtener el tiempo de espera restante
+// ✅ Obter tempo de espera restante
 const timeClaimTraga = (sender) => {
     const data = GameTraga.find(i => i.user === sender);
     return data ? data.time : 0;
@@ -299,7 +299,7 @@ GameRuleta.splice(indice,1)
 fs.writeFileSync(JsonRuleta, JSON.stringify(GameRuleta,null, 2)+'\n')
 }
 });
-},1* 60 * 1000) // verifica cada 5 min
+},1* 60 * 1000) // verifica a cada 5 min
 }
 
 
@@ -315,7 +315,7 @@ const expiredPescar = () => {
       fs.writeFileSync(JsonPescar, JSON.stringify(GamePescar, null, 2) + '\n');
     }
 
-  },1 * 60 * 1000); // cada 1 minuto
+  },1 * 60 * 1000); // a cada 1 minuto
 };
 
 
@@ -329,7 +329,7 @@ GameEve.splice(indice,1)
 fs.writeFileSync(JsonEve, JSON.stringify(GameEve,null, 2)+'\n')
 }
 });
-},1* 60 * 1000) // verifica cada 5 min
+},1* 60 * 1000) // verifica a cada 5 min
 }
 
 const expiredDayli = (sender) => {
@@ -341,7 +341,7 @@ GameDayli.splice(indice,1)
 fs.writeFileSync(JsonDayli, JSON.stringify(GameDayli,null, 2)+'\n')
 }
 });
-},1* 60 * 1000) // verifica cada 5 min
+},1* 60 * 1000) // verifica a cada 5 min
 }
 
 const expiredEmoji = (sender) => {
@@ -353,7 +353,7 @@ GameEmoji.splice(indice,1)
 fs.writeFileSync(JsonEmoji, JSON.stringify(GameEmoji,null, 2)+'\n')
 }
 });
-},1* 60 * 1000) // verifica cada 5 min
+},1* 60 * 1000) // verifica a cada 5 min
 }
 
 //
@@ -366,7 +366,7 @@ GameAttp.splice(indice,1)
 fs.writeFileSync(JsonAttp, JSON.stringify(GameAttp,null, 2)+'\n')
 }
 });
-},1* 60 * 1000) // verifica cada 5 min
+},1* 60 * 1000) // verifica a cada 5 min
 }
 
 const expiredMinar = (sender) => {
@@ -378,7 +378,7 @@ GameMinar.splice(indice,1)
 fs.writeFileSync(JsonMining, JSON.stringify(GameMinar,null, 2)+'\n')
 }
 });
-},1* 60 * 1000) // verifica cada 5 min
+},1* 60 * 1000) // verifica a cada 5 min
 }
 
 const expiredCasino = (sender) => {
@@ -390,7 +390,7 @@ GameCasino.splice(indice,1)
 fs.writeFileSync(JsonCasino, JSON.stringify(GameCasino,null, 2)+'\n')
 }
 });
-},1* 60 * 1000) // verifica cada 5 min
+},1* 60 * 1000) // verifica a cada 5 min
 }
 
 module.exports = { checkCasino,checkAttp,checkEmoji,checkEve, timeClaimTraga, addClaimTraga, checkClaimTraga, checkRuleta,checkMinar,addCasino,addAttp,addEmoji,addEve,addRuleta ,addMinar,expiredCasino,expiredMinar,expiredAttp,expiredEmoji,expiredEve,expiredRuleta,timeAttp,timeEmoji,timeEve,timeRuleta,timeMinar,timeCasino,expiredDayli,JsonDayli,addDayli,timeDayli,checkDayli,expiredPescar,checkPescar,addPescar,timePescar}

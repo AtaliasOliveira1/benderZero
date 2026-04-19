@@ -42,7 +42,7 @@ const registro = JSON.parse(fs.readFileSync('./settings/Grupo/Json/registros.jso
         }
         
  //////REGISTRO
- /////ECONOMÍA 
+ /////ECONOMIA 
 
 const delkoin = (sender, monto) => {
 let position = false
@@ -82,7 +82,7 @@ return registro[position].dinero
 }
 }
  
- /// mentioned
+ /// mencionado
  const delkoinM = (usuario, monto) => {
 let position = false
 Object.keys(registro).forEach((i) => {
@@ -120,8 +120,8 @@ if (position !== false) {
 return registro[position].dinero
 }
 }
-////ECONOMÍA 
-////NIVEL
+////ECONOMIA 
+////NÍVEL
 const addLevel = (sender, monto) => {
 let position = false
 Object.keys(registro).forEach((i) => {
@@ -134,7 +134,7 @@ registro[position].nivel += monto
 fs.writeFileSync('./settings/Grupo/Json/registros.json', JSON.stringify(registro, null , 2 )+'\n')
 }
 }
-/////ADD XP
+/////ADICIONAR XP
 const addXp = (sender, monto) => {
 let position = false
 Object.keys(registro).forEach((i) => {
@@ -147,7 +147,7 @@ registro[position].xp += monto
 fs.writeFileSync('./settings/Grupo/Json/registros.json', JSON.stringify(registro, null , 2 )+'\n')
 }
 }
-////NIVEL DEL USUARIO 
+////NÍVEL DO USUÁRIO 
 const levelOfsender = (sender) => {
 let position = false
 Object.keys(registro).forEach((i) => {
@@ -159,7 +159,7 @@ if (position !== false) {
 return registro[position].nivel
 }
 }
-///XP DEL USUARIO 
+///XP DO USUÁRIO 
  const xpOfsender = (sender) => {
 let position = false
 Object.keys(registro).forEach((i) => {
@@ -200,69 +200,69 @@ return registro[position].rxp
 
 
 
-// Función para agregar reputación a un usuario
+// Função para adicionar reputação a um usuário
 const addRep = (usuario, monto) => {
     let status = false;
 
-    // Asegúrate de que el usuario sea una cadena
+    // Certifique-se de que o usuário é uma string
     if (typeof usuario === 'string') {
-        // Recorta el valor del usuario para asegurarse de que no haya espacios adicionales
+        // Remova espaços do valor do usuário para garantir que não haja espaços extras
         usuario = usuario.trim();
 
-        // Busca el usuario dentro de registro
+        // Pesquise o usuário dentro de registro
         registro.forEach((user, index) => {
-            // Recorta los valores de id de los usuarios en el JSON para evitar problemas con espacios
+            // Remova espaços dos valores de id dos usuários no JSON para evitar problemas de espaço
             let userId = user.id.trim();
             if (userId === usuario) {
-                console.log(`Usuario encontrado: ${userId}`); // Depuración: Verificación de usuario
-                user.rep += monto;  // Actualiza la reputación del usuario
-                console.log(`Nueva reputación: ${user.rep}`); // Depuración: Verificación de reputación
-                status = true;  // Marca que se encontró y se actualizó el usuario
+                console.log(`User found: ${userId}`); // Debug: Verificação de usuário
+                user.rep += monto;  // Atualizar reputação do usuário
+                console.log(`New reputation: ${user.rep}`); // Debug: Verificação de reputação
+                status = true;  // Marcar que o usuário foi encontrado e atualizado
             }
         });
     }
 
-    // Si el usuario fue encontrado y se actualizó, guarda el archivo
+    // Se o usuário foi encontrado e atualizado, salve o arquivo
     if (status) {
-        console.log('Guardando cambios en el archivo JSON...');
+        console.log('Saving changes to JSON file...');
         fs.writeFileSync('./settings/Grupo/Json/registros.json', JSON.stringify(registro, null, 2) + '\n');
-        console.log('Cambios guardados correctamente.');
+        console.log('Changes saved successfully.');
     } else {
-        console.log('Usuario no encontrado o no se pudo actualizar.');
+        console.log('User not found or could not be updated.');
     }
 }
 
 
 
-// Función para agregar reputación a un usuario
+// Função para adicionar reputação a um usuário
 const delRep = (usuario, monto) => {
     let status = false;
 
-    // Asegúrate de que el usuario sea una cadena
+    // Certifique-se de que o usuário é uma string
     if (typeof usuario === 'string') {
-        // Recorta el valor del usuario para asegurarse de que no haya espacios adicionales
+        // Remova espaços do valor do usuário para garantir que não haja espaços extras
         usuario = usuario.trim();
 
-        // Busca el usuario dentro de registro
+        // Pesquise o usuário dentro de registro
         registro.forEach((user, index) => {
-            // Recorta los valores de id de los usuarios en el JSON para evitar problemas con espacios
+            // Remova espaços dos valores de id dos usuários no JSON para evitar problemas de espaço
             let userId = user.id.trim();
             if (userId === usuario) {
-                console.log(`Usuario encontrado: ${userId}`); // Depuración: Verificación de usuario
-                user.rep -= monto;  // Actualiza la reputación del usuario
-                console.log(`Nueva reputación: ${user.rep}`); // Depuración: Verificación de reputación
-                status = true;  // Marca que se encontró y se actualizó el usuario
+                console.log(`User found: ${userId}`); // Debug: Verificação de usuário
+                user.rep -= monto;  // Atualizar reputação do usuário
+                console.log(`New reputation: ${user.rep}`); // Debug: Verificação de reputação
+                status = true;  // Marcar que o usuário foi encontrado e atualizado
             }
         });
     }
 
-    // Si el usuario fue encontrado y se actualizó, guarda el archivo
+    // Se o usuário foi encontrado e atualizado, salve o arquivo
     if (status) {
-        console.log('Guardando cambios en el archivo JSON...');
+        console.log('Saving changes to JSON file...');
         fs.writeFileSync('./settings/Grupo/Json/registros.json', JSON.stringify(registro, null, 2) + '\n');
-        console.log('Cambios guardados correctamente.');
+        console.log('Changes saved successfully.');
     } else {
-        console.log('Usuario no encontrado o no se pudo actualizar.');
+        console.log('User not found or could not be updated.');
     }
 }
 
@@ -276,7 +276,7 @@ position = i
 if(position !== false){
 return registro[position].rep
 }}
-////LEVEL  
+////NÍVEL  
    module.exports = {
    MoneyOfSender, 
    addkoin ,

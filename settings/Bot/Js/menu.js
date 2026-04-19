@@ -4,7 +4,7 @@ return `
 ╭══════════════════ 
 │✦ ➮ sᴏʏ: ${Bot}
 │✦ ➮ ᴘʀᴇғɪᴊᴏ ᴀᴄᴛᴜᴀʟ: 𝐌𝐮𝐥𝐭𝐢𝐩𝐫𝐞𝐟𝐢𝐣𝐨
-│✦ ➮ ᴘᴀɢɪɴᴀ ᴏғɪᴄɪᴀʟ:  https://naufrabot.com
+│✦ ➮ ᴘᴀɢɪɴᴀ ᴏғɪᴄɪᴀʟ:  https://benderbot.com
 ╰━━━━━─「✪」─━━━━━
 
 ➮☆ۣۜۜ͜͡ \`📂 ʟɪsᴛᴀ ᴅᴇ ᴄᴏᴍᴀɴᴅᴏs\` ꔷ㆒⸼݇҉ֻ᠂⃟✥    
@@ -15,162 +15,162 @@ return `
   ❍ 𝐌𝐄𝐍𝐔 𝐈𝐍𝐅𝐎  ❐
 ╰
 *➢ping*
-> ➥Velocidad del bot
+> ➥Velocidade do bot
 *➢perfil*
-> ➥Mira tu perfil
+> ➥Veja seu perfil
 *➢ship*
-> ➥porcentaje de que le guste alguien
+> ➥porcentagem de gostar de alguém
 *➢botcompleto*     
-> ➥Como tener un bot completo
+> ➥Como ter um bot completo
 *➢grupos*
-> ➥Grupos oficiales 
+> ➥Grupos oficiais 
 *➢canales*
-> ➥Canales oficiales
+> ➥Canais oficiais
 *➢serbot*
-> ➥Como ser un bot
+> ➥Como ser um bot
 *➢Personalizarbot*
 > ➥Como editar este bot
 *➢miapi*
-> ➥Mira tu API key
+> ➥Veja sua API key
 *➢comprarapi*
-> ➥Como adquirir una clave API 
+> ➥Como adquirir uma chave API 
  
 ╭
    ❍ 𝐌𝐄𝐍𝐔 𝐀𝐃𝐌𝐈𝐍  ❐
 ╰  
 *➢welcome 1/0*
-> ➥Activa/desactiva las bienvenidas 
+> ➥Ativa/desativa as boas-vindas 
 *➢antilink 1/0*      
-> ➥Activa/desactiva anti enlaces
+> ➥Ativa/desativa anti links
 *➢modoadmin 1/0*
-> ➥Activa/desactiva el uso de solo adm.
+> ➥Ativa/desativa o uso apenas de adm.
 *➢todos*
-> ➥menciona a todos con @
+> ➥menciona a todos com @
 *➢anuncio*
-> ➥otra forma de mencionar a todos
+> ➥outra forma de mencionar a todos
 *➢ban/kick*
-> ➥Elima a un participante
+> ➥Remove um participante
 *➢notify*
-> ➥notificación fantasma
+> ➥notificação fantasma
 *➢grupo*
-> ➥abrir/cerrar grupo
+> ➥abrir/fechar grupo
 *➢rankrep*
-> ➥Ranking de reputación
+> ➥Ranking de reputação
 *➢rankcoins*
 > ➥Ranking de coins
 *➢ranknivel*
-> ➥Ranking de nivel
+> ➥Ranking de nível
  
  ╭
   ❍ 𝐌𝐄𝐍𝐔 𝐃𝐄𝐒𝐂𝐀𝐑𝐆𝐀𝐒  ❐
 ╰
 *➢play*
-> ➥Descarga músicas 
+> ➥Baixa músicas 
 *➢playvideo*
-> ➥Descarga videos 
+> ➥Baixa vídeos 
 *➢playdoc*
-> ➥Descarga videos en documento
+> ➥Baixa vídeos em documento
 *➢tiktok*
-> ➥Descarga videos de tiktok
+> ➥Baixa vídeos do tiktok
 *➢facebook*
-> ➥Descarga videos de facebook 
+> ➥Baixa vídeos do facebook 
 *➢instagram*
-> ➥Descarga videos de Instagram
+> ➥Baixa vídeos do Instagram
 *➢mediafire*
-> ➥Descarga archivos de mediafire 
+> ➥Baixa arquivos do mediafire 
 *➢descargarapk*
-> ➥Desacarga apk
+> ➥Baixa apk
 *➢pinterest*
-> ➥Desacarga imagenes de pinterest
+> ➥Baixa imagens do pinterest
                   
 ╭
    ❍ 𝐌𝐄𝐍𝐔 𝐅𝐈𝐆𝐔𝐒  ❐
 ╰
 *➢sticker*
-> ➥convierte imagen/vídeo a sticker
+> ➥converte imagem/vídeo em sticker
 *➢attp*
-> ➥Convierte texto a sticker 
+> ➥Converte texto em sticker 
 *➢attp2*
-> ➥Convierte texto a sticker 
+> ➥Converte texto em sticker 
 *➢attp3*
-> ➥Convierte texto a sticker 
+> ➥Converte texto em sticker 
 *➢Emojimix*           
-> ➥Mezcla emojis
+> ➥Mistura emojis
 ╭  
    ❍ 𝐌𝐄𝐍𝐔 𝐇𝐄𝐑𝐑𝐀𝐌𝐈𝐄𝐍𝐓𝐀𝐒  ❐
 ╰   
 *➢toimg*
-> ➥convierte sticker a imagen 
+> ➥converte sticker em imagem 
 *➢tomp3*      
-> ➥Convierte vídeo a audio
+> ➥Converte vídeo em audio
 *➢ytsearch*
-> ➥Buscar videos en Youtube
+> ➥Buscar vídeos no Youtube
 *➢calc*
-> ➥Calculadora en WhatsApp 
+> ➥Calculadora no WhatsApp 
 *➢wikipedia*
-> ➥Busca información en Wikipedia
+> ➥Busca informações na Wikipedia
 *➢google*
-> ➥Busca información en Google 
+> ➥Busca informações no Google 
 *➢simi*
-> ➥Habla hot con el bot
+> ➥Fale quente com o bot
 *➢horoscopo*
-> ➥pronostico diario horoscopo
+> ➥previsão diária horóscopo
 *➢ia*
-> ➥preguntale a IA
+> ➥pergunte à IA
 *➢chatgpt*
-> ➥preguntale a chatpgt 
+> ➥pergunte ao chatgpt 
  
 ╭                    
    ❍ 𝐌𝐄𝐍𝐔 - 𝐄𝐂𝐎𝐍𝐎𝐌𝐈𝐀  ❐       
 ╰      
 *➢Nivel*
-> ➥Mira tu nivel
+> ➥Veja seu nível
 *➢cartera*
-> ➥Revisa tu dinero 
+> ➥Revise seu dinheiro 
 *➢reg*
-> ➥Regiatrate en el sistema
+> ➥Registre-se no sistema
 *➢listreg*
 > ➥Lista de registrados 
 *➢ruleta* 
-> ➥Juega a la ruleta 
+> ➥Jogue a roleta 
 *➢levelup*
-> ➥Sube de nivel 
+> ➥Suba de nível 
 *➢minar*
-> ➥Mina y gana
+> ➥Mine e ganhe
 *➢regalar*
-> ➥Regala dinero
+> ➥Regale dinheiro
 *➢mireputacion*
-> ➥Mira tu reputación
+> ➥Veja sua reputação
 *➢tragamonedas*
-> ➥Juega a tragamonedas 
+> ➥Jogue caça-níqueis 
 *➢dayli*   
-> ➥Recibe tu recompensa diaria
+> ➥Receba sua recompensa diária
 *➢pescar*      
-> ➥Pesca y gana
+> ➥Pesque e ganhe
 *➢tienda*     
-> ➥Compra y vende experiencia 
+> ➥Compre e venda experiência 
 *➢casar* 
-> ➥Parejas aleatorias
+> ➥Casais aleatórios
  
 ╭
     ❍ 𝐌𝐄𝐍𝐔 𝐂𝐑𝐄𝐀𝐃𝐎𝐑  ❐
 ╰  
 *➢sercreador*
-> ➥Como convertirte en dueño
+> ➥Como se tornar dono
 *➢antiprivado*            
-> ➥No aseptar personas en tu privado
+> ➥Não aceitar pessoas no seu privado
 *➢revelarvisu*
-> ➥Revela imagen de vista única 
+> ➥Revela imagem de vista única 
 *➢reiniciar*
-> ➥Reinicia el bot
+> ➥Reinicia o bot
 *➢bangp*
-> ➥Bloquea el uso del bot en un grupo
+> ➥Bloqueia o uso do bot em um grupo
 *➢unbangp*
-> ➥Desbloquea el uso del bot en un grupo 
+> ➥Desbloqueia o uso do bot em um grupo 
 *➢botoff*
-> ➥Apaga el bot      
+> ➥Desliga o bot      
 *➢boton*
-> ➥Prende el bot
+> ➥Liga o bot
  
 `}
 module.exports = Menu 
